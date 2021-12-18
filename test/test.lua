@@ -6,9 +6,5 @@ a = {
 
 b = {"test1", "test2"}
 
-print(table.concat({"test0", b}))
-
-for i, v in pairs(a) do
-    print(i)
-    print(v)
-end
+table.remove(b, #b)
+print(b)

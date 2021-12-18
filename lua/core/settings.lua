@@ -1,5 +1,5 @@
 -- 通用配置
-settings={}
+local settings={}
 
 local function set_general()
     vim.cmd([[
@@ -11,14 +11,12 @@ local function set_general()
         set ruler
         set rulerformat=%20(%2*%<%f%=\ %m%r\ %3l\ %c\ %p%%%)
         set cmdheight=2
-        set fillchars=vert:\ ,stl:\ ,stlnc:\ 
         set showmatch
         set matchtime=5
         set hlsearch
         set ignorecase
         "paste模式切换
         set pastetoggle=<F6>
-        set formatoptions=tcrqn
         set tabstop=4
         set softtabstop=4
         set shiftwidth=4

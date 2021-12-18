@@ -1,6 +1,6 @@
 -- 通用快捷键绑定
 
-keymap={}
+local keymap={}
 
 function keymap.init() 
 end

@@ -1,7 +1,7 @@
-nvim_tree = {}
+local editor = {}
+local use = require("packer").use        
 
-function nvim_tree.loadPlugin()
-    local use = require("packer").use        
+function editor.load_nvim_tree()
     use {
         'kyazdani42/nvim-tree.lua',
         requires = {
@@ -11,4 +11,4 @@ function nvim_tree.loadPlugin()
     }
 end
 
-return nvim_tree
+return editor
