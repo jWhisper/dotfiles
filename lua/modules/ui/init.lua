@@ -1,9 +1,11 @@
+local conf = require("modules.ui.configs")
 local ui = {
     {
         'navarasu/onedark.nvim',
-        config = function()
-            -- require("onedark").setup()
-        end,
+    },
+    {
+        "kyazdani42/nvim-web-devicons",
+        -- config = conf.devicons,
     }
 }
 return ui 

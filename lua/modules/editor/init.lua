@@ -11,9 +11,6 @@ local editor = {
     },
     {
         'akinsho/bufferline.nvim',
-        requires = {
-            'kyazdani42/nvim-web-devicons', -- optional, for file icon
-        },
         config = conf.bufferline,
     },
     {
