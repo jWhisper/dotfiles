@@ -3,6 +3,7 @@ local settings={}
 
 local function set_general()
     vim.cmd([[
+        set guifont=JetBrainsMono\ Nerd\ Font:h12
         " set number
         set relativenumber
         set notimeout

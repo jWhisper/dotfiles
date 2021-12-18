@@ -13,6 +13,7 @@ function _G.createDir(path)
 end
 
 function global:new()
+    self.log_level = "warn"
     self.is_mac = os_name == "Darwin"
     self.is_linux = os_name == "Linux"
     self.is_windows = os_name == "Windows_NT"

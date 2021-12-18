@@ -1,10 +1,22 @@
 local data_dir = require("core.global").data_dir
 local config_dir = require("core.global").config_dir
+local log = nil
+local utils = require("core.utils")
 
 -- compile_path尽量放在runtimepath，自动加载；不然需要手动load
 local compile_path = config_dir .. "/plugin/packer_compiled.lua"
 
 packerWrapper = {}
+
+local function pcall_packer_command(cmd, kwargs)
+  local status_ok, msg = pcall(function()
+    require("packer")[cmd](unpack(kwargs or {}))
+  end)
+  if not status_ok then
+    log.error(cmd .. " failed with: " .. vim.inspect(msg))
+    log.trace(vim.inspect(vim.fn.eval "v:errmsg"))
+  end
+end
 
 function packerWrapper:load_packer() 
     local package_root = data_dir .. "pack/"
@@ -19,7 +31,7 @@ function packerWrapper:load_packer()
     packer.init {
         package_root = package_root,
         compile_path = compile_path,
-        log = { level = "debug" },
+        log = { level = global.log_level },
         git = {
             clone_timeout = 300,
             subcommands = {
@@ -34,23 +46,46 @@ function packerWrapper:load_packer()
             end,
         },
     }
+    log = require("packer.log")
     packer.reset()
     packer.use {"wbthomason/packer.nvim", opt = true}
 
     self.repos = {}
-    self.packer = packer
+	self.packer = packer
+
+    vim.cmd [[autocmd User PackerComplete lua require('core.packerWrapper'):run_on_packer_complete()]]
+    -- vim.cmd [[autocmd! User PackerCompile lua require('core.packerWrapper'):run_on_packer_complete()]]
+    -- vim.cmd [[autocmd! User PackerClean lua require('core.packerWrapper'):clean()]]
+
+	-- setmetatable(self, packer)
 
     return self
-    -- vim.cmd [[autocmd User PackerComplete lua require('lvim.utils.hooks').run_on_packer_complete()]]
+end
+
+function packerWrapper:run_on_packer_complete() 
+    vim.fn.delete(compile_path)
+	-- pcall_packer_command("compile")
+	self.packer.compile()
+    -- log.debug "regenerate compile file..."
+    local stat = vim.loop.fs_stat(compile_path)
+    -- log.debug(vim.inspect(stat))
+	if not utils.is_file(compile_path) then
+		log.error "generate compile_file failed..."
+	end
+end
+
+
+function packerWrapper:clean()
+    log.debug "delete compile_file..."
+	pcall_packer_command("clean")
 end
 
 function packerWrapper:install() 
     for _, fn in ipairs(self.repos) do
         fn()
     end
-    vim.fn.delete(compile_path)
-    self.packer:compile() 
-    self.packer.install()
+    self:run_on_packer_complete()
+	self.packer.install()
     self.repos = nil    
 end
 

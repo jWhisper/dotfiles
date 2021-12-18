@@ -3,6 +3,7 @@
 local keymap={}
 
 function keymap.init() 
+    vim.g.mapleader = ","
 end
 
 return keymap
