@@ -48,7 +48,7 @@ function packerWrapper:load_packer()
     }
     log = require("packer.log")
     packer.reset()
-    packer.use {"wbthomason/packer.nvim", opt = true}
+    packer.use {"wbthomason/packer.nvim"}
 
     self.repos = {}
 	self.packer = packer
@@ -70,7 +70,7 @@ function packerWrapper:run_on_packer_complete()
     local stat = vim.loop.fs_stat(compile_path)
     -- log.debug(vim.inspect(stat))
 	if not utils.is_file(compile_path) then
-		log.error "generate compile_file failed..."
+		-- log.error "generate compile_file failed..."
 	end
 end
 
@@ -81,8 +81,10 @@ function packerWrapper:clean()
 end
 
 function packerWrapper:install() 
-    for _, fn in ipairs(self.repos) do
-        fn()
+    for _, u in ipairs(self.repos) do
+        if #u == 0 then goto continue end
+        self.packer.use(u)
+        ::continue::
     end
     self:run_on_packer_complete()
 	self.packer.install()

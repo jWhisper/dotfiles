@@ -6,5 +6,9 @@ a = {
 
 b = {"test1", "test2"}
 
+c = {}
+
+print(#b, #c)
+
 table.remove(b, #b)
 print(b)
