@@ -54,10 +54,6 @@ function packerWrapper:load_packer()
 	self.packer = packer
 
     vim.cmd [[autocmd User PackerComplete lua require('core.packerWrapper'):run_on_packer_complete()]]
-    -- vim.cmd [[autocmd! User PackerCompile lua require('core.packerWrapper'):run_on_packer_complete()]]
-    -- vim.cmd [[autocmd! User PackerClean lua require('core.packerWrapper'):clean()]]
-
-	-- setmetatable(self, packer)
 
     return self
 end
@@ -82,9 +78,10 @@ end
 
 function packerWrapper:install() 
     for _, u in ipairs(self.repos) do
-        if #u == 0 then goto continue end
-        self.packer.use(u)
-        ::continue::
+        if #u ~= 0 then
+            -- dump(u)
+            self.packer.use(u)
+        end
     end
     self:run_on_packer_complete()
 	self.packer.install()

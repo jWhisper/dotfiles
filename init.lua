@@ -16,7 +16,6 @@ local function bootstrap()
     km:init()
     -- 加载插件管理器
     p = packerWrapper:load_packer()
-
     local _ = require("modules.init")
     p:install()
 end

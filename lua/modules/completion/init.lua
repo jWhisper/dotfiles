@@ -30,7 +30,7 @@ local completion = {
     {
         'L3MON4D3/LuaSnip', -- Snippets plugin
         config = conf.luasnip,
-        requires = "rafamadriz/friendly-snippets"
+        -- requires = "rafamadriz/friendly-snippets"
     },
     {
         'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp

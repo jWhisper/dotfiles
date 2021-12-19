@@ -1,18 +1,18 @@
 local config = {}
 
 function config.cmpconf()
-    vim.cmd [[highlight CmpItemAbbrDeprecated guifg=#D8DEE9 guibg=NONE gui=strikethrough]]
-    vim.cmd [[highlight CmpItemKindSnippet guifg=#BF616A guibg=NONE]]
-    vim.cmd [[highlight CmpItemKindUnit guifg=#D08770 guibg=NONE]]
-    vim.cmd [[highlight CmpItemKindProperty guifg=#A3BE8C guibg=NONE]]
-    vim.cmd [[highlight CmpItemKindKeyword guifg=#EBCB8B guibg=NONE]]
-    vim.cmd [[highlight CmpItemAbbrMatch guifg=#5E81AC guibg=NONE]]
-    vim.cmd [[highlight CmpItemAbbrMatchFuzzy guifg=#5E81AC guibg=NONE]]
-    vim.cmd [[highlight CmpItemKindVariable guifg=#8FBCBB guibg=NONE]]
-    vim.cmd [[highlight CmpItemKindInterface guifg=#88C0D0 guibg=NONE]]
-    vim.cmd [[highlight CmpItemKindText guifg=#81A1C1 guibg=NONE]]
-    vim.cmd [[highlight CmpItemKindFunction guifg=#B48EAD guibg=NONE]]
-    vim.cmd [[highlight CmpItemKindMethod guifg=#B48EAD guibg=NONE]]
+    --vim.cmd [[highlight CmpItemAbbrDeprecated guifg=#D8DEE9 guibg=NONE gui=strikethrough]]
+    --vim.cmd [[highlight CmpItemKindSnippet guifg=#BF616A guibg=NONE]]
+    --vim.cmd [[highlight CmpItemKindUnit guifg=#D08770 guibg=NONE]]
+    --vim.cmd [[highlight CmpItemKindProperty guifg=#A3BE8C guibg=NONE]]
+    --vim.cmd [[highlight CmpItemKindKeyword guifg=#EBCB8B guibg=NONE]]
+    --vim.cmd [[highlight CmpItemAbbrMatch guifg=#5E81AC guibg=NONE]]
+    --vim.cmd [[highlight CmpItemAbbrMatchFuzzy guifg=#5E81AC guibg=NONE]]
+    --vim.cmd [[highlight CmpItemKindVariable guifg=#8FBCBB guibg=NONE]]
+    --vim.cmd [[highlight CmpItemKindInterface guifg=#88C0D0 guibg=NONE]]
+    --vim.cmd [[highlight CmpItemKindText guifg=#81A1C1 guibg=NONE]]
+    --vim.cmd [[highlight CmpItemKindFunction guifg=#B48EAD guibg=NONE]]
+    --vim.cmd [[highlight CmpItemKindMethod guifg=#B48EAD guibg=NONE]]
 
     local t = function(str)
         return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -23,11 +23,6 @@ function config.cmpconf()
                    vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(
                        col, col):match("%s") == nil
     end
-
-
-
-
-
 
     local lspconfig = require('lspconfig')
 
@@ -71,7 +66,6 @@ function config.cmpconf()
                     cmp.select_next_item()
                   elseif luasnip.expand_or_jumpable() then
                     vim.fn.feedkeys(t("<Plug>luasnip-expand-or-jump"), "")
-                    -- luasnip.expand_or_jump()
                   elseif has_words_before() then
                     cmp.complete()
                   else
@@ -121,7 +115,7 @@ function config.lspconf()
 		local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
 		 -- Enable completion triggered by <c-x><c-o>
-		buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+		 -- buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
 		-- Mappings.
 		local opts = { noremap=true, silent=true }
@@ -171,6 +165,8 @@ function config.luasnip()
         history = true,
         updateevents = "TextChanged,TextChangedI"
     }
+    -- friendly-...
+    require("luasnip/loaders/from_vscode").load()
 end
 
 function config.autopairs()

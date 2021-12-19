@@ -12,14 +12,23 @@ local ui = {
 
     },
     {
+        -- "sainnhe/edge",
+        -- config = conf.edge,
+    },
+    {
+        -- "catppuccin/nvim",
+        -- opt = false,
+        -- as = "catppuccin",
+        -- config = conf.catppuccin
+    },
+    {
         "kyazdani42/nvim-web-devicons",
         -- config = conf.devicons,
     },
-
-    -- 垂直线
+        -- 垂直线
     {
         "lukas-reineke/indent-blankline.nvim",
         config = conf.indent_blankline,
-    }
+    },
 }
 return ui 
