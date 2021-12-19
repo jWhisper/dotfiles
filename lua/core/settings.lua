@@ -1,28 +1,34 @@
+-- macos 要将option当成meta键，alt才会起效
 -- 通用配置
 local settings={}
 
 local function set_general()
+    -- 鼠标支持
+    vim.o.mouse = "a"
+
     vim.cmd([[
-        set guifont=JetBrainsMono\ Nerd\ Font:h12
+        " set guifont=JetBrainsMono\ Nerd\ Font:h12
         " set number
         set relativenumber
         set notimeout
         set cursorline
         set encoding=utf-8
+        set fencs=utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936
         set ruler
         set rulerformat=%20(%2*%<%f%=\ %m%r\ %3l\ %c\ %p%%%)
         set cmdheight=2
         set showmatch
         set matchtime=5
-        set hlsearch
         set ignorecase
+        set hlsearch
+        set incsearch
         "paste模式切换
         set pastetoggle=<F6>
         set tabstop=4
         set softtabstop=4
         set shiftwidth=4
         set expandtab
-        " 换行
+        " 截叠行
         set wrap
         set smarttab
         " 自动格式化
@@ -40,6 +46,7 @@ local function set_general()
         set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
         set laststatus=2
     ]]) 
+    vim.o.background = "dark" -- or "light" for light mode
 
     local cache_dir = require("core.global").cache_dir
     vim.cmd("set nobackup")

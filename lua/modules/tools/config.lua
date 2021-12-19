@@ -1,7 +1,8 @@
 local config = {}
 
 function config.telconf()
-    vim.api.nvim_set_keymap('n', '<leader>f', ':lua require"telescope.builtin".live_grep()<CR>', { noremap=true, silent=true})
+    vim.api.nvim_set_keymap('n', '<leader>g', ':lua require"telescope.builtin".live_grep()<CR>', { noremap=true, silent=true})
+    vim.api.nvim_set_keymap('n', '<leader>f', ':lua require"telescope.builtin".find_files()<CR>', { noremap=true, silent=true})
 end
 
 function config.format()

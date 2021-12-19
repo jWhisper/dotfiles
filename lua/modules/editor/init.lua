@@ -14,12 +14,22 @@ local editor = {
         config = conf.bufferline,
     },
     {
-		"nvim-treesitter/nvim-treesitter",
-		--commit = commit.nvim_treesitter,
-		branch = vim.fn.has "nvim-0.6" == 1 and "master" or "0.5-compat",
-		run = ":TSUpdate",
+        "nvim-treesitter/nvim-treesitter",
+        --commit = commit.nvim_treesitter,
+        branch = vim.fn.has "nvim-0.6" == 1 and "master" or "0.5-compat",
+        run = ":TSUpdate",
         config = conf.treesitter,
-    }
+    },
+    {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        opt = true,
+        after = "nvim-treesitter"
+    },
+    {
+        "romgrk/nvim-treesitter-context",
+        opt = true,
+        after = "nvim-treesitter"
+    },
 }
 
 return editor

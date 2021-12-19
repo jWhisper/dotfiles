@@ -13,13 +13,93 @@ function config.treesitter()
             -- Using this option may slow down your editor, and you may see some duplicate highlights.
             -- Instead of true it can also be a list of languages
             additional_vim_regex_highlighting = false,
-  },
-}
+
+        },
+        -- 增量选择
+        incremental_selection = {
+            enable = true,
+            keymaps = {
+                init_selection = '<CR>',
+                node_incremental = '<CR>',
+                node_decremental = '<BS>',
+                scope_incremental = '<TAB>',
+            },
+        },
+
+        -- = 格式化，选中
+        indent = {
+            enable = true
+        },
+
+        textobjects = {
+            select = {
+                enable = true,
+
+                -- Automatically jump forward to textobj, similar to targets.vim 
+                lookahead = true,
+
+                keymaps = {
+                    -- You can use the capture groups defined in textobjects.scm
+                    ["af"] = "@function.outer",
+                    ["if"] = "@function.inner",
+                    ["ac"] = "@class.outer",
+                    ["ic"] = "@class.inner",
+
+                    -- Or you can define your own textobjects like this
+                    ["iF"] = {
+                        python = "(function_definition) @function",
+                        cpp = "(function_definition) @function",
+                        c = "(function_definition) @function",
+                        go = "(function_definition) @function",
+                        java = "(method_declaration) @function",
+                    },
+                },
+            },
+            move = {
+                enable = true,
+                set_jumps = true, -- whether to set jumps in the jumplist
+                goto_next_start = {
+                    ["]m"] = "@function.outer",
+                    ["]]"] = "@class.outer",
+                },
+                goto_next_end = {
+                    ["]M"] = "@function.outer",
+                    ["]["] = "@class.outer",
+                },
+                goto_previous_start = {
+                    ["[m"] = "@function.outer",
+                    ["[["] = "@class.outer",
+                },
+                goto_previous_end = {
+                    ["[M"] = "@function.outer",
+                    ["[]"] = "@class.outer",
+                },
+            },
+        },
+        context = {enable = true, throttle = true},
+    }
 end
 
 function config.bufferline()
     -- vim.opt.termguicolors = true
-    require("bufferline").setup{}
+    local map = require("core.keymap").map
+    vim.api.nvim_set_keymap("n", "<A-h>", ":BufferLineCyclePrev<CR>", { noremap=true, silent=true})
+    map("n", "<A-l>", ":BufferLineCycleNext<CR>", nil)
+    require("bufferline").setup{
+        options = {
+            -- 使用 nvim 内置lsp
+            diagnostics = "nvim_lsp",
+            -- 左侧让出 nvim-tree 的位置
+            offsets = {{
+                filetype = "NvimTree",
+                text = "File Explorer",
+                highlight = "Directory",
+                text_align = "left"
+            }}
+        }
+    }
+    
+
 end
 
 function config.nvim_tree()
