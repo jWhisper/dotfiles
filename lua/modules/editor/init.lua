@@ -36,7 +36,7 @@ local editor = {
         config = function() 
             require("tsht").hint_keys = { "h", "j", "f", "d", "n", "v", "s", "l", "a" } 
             vim.api.nvim_set_keymap("v", "m", ":lua require('tsht').nodes()<CR>", { noremap=true, silent=true})
-            vim.api.nvim_set_keymap("o", "m", ":<C-U>lua require('tsht').nodes()<CR>", { noremap=false, silent=true})
+            vim.api.nvim_set_keymap("o", "m", ":<C-u>lua require('tsht').nodes()<CR>", { noremap=false, silent=true})
         end
     },
     {
