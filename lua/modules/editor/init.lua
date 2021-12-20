@@ -22,7 +22,7 @@ local editor = {
     },
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
-        opt = true,
+        -- opt = true,
         after = "nvim-treesitter"
     },
     {
@@ -30,6 +30,25 @@ local editor = {
         opt = true,
         after = "nvim-treesitter"
     },
+    {
+        "mfussenegger/nvim-ts-hint-textobject",
+        -- opt = true,
+        config = function() 
+            require("tsht").hint_keys = { "h", "j", "f", "d", "n", "v", "s", "l", "a" } 
+            vim.api.nvim_set_keymap("v", "m", ":lua require('tsht').nodes()<CR>", { noremap=true, silent=true})
+            vim.api.nvim_set_keymap("o", "m", ":<C-U>lua require('tsht').nodes()<CR>", { noremap=false, silent=true})
+        end
+    },
+    {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        opt = true,
+        after = "nvim-treesitter",
+    },
+    {
+        "p00f/nvim-ts-rainbow",
+        opt=true,
+        event = "BufRead",
+    }
 }
 
 return editor

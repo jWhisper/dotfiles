@@ -3,7 +3,7 @@ local lang = {
     {
         "fatih/vim-go",
         --opt=true,
-        ft = 'go',
+        ft = {'go', 'GO', "Go"},
         -- cmd = "VIMGOEnable",
         run = ":GoInstallBinaries",
         config = conf.lang_go

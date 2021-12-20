@@ -27,7 +27,7 @@ local tools = {
     {
         'folke/which-key.nvim',
         opt=true,
-        keys=",",
+        keys=";",
         config = function()
             require("which-key").setup{}
         end,

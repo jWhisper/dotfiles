@@ -8,6 +8,9 @@ local function set_general()
 
     vim.cmd([[
         " set guifont=JetBrainsMono\ Nerd\ Font:h12
+	"防止vim背景颜色错误
+        set t_ut= 
+	"开启真颜色吗"
         " set number
         set relativenumber
         set notimeout
@@ -37,6 +40,7 @@ local function set_general()
         set fillchars=vert:\ ,stl:\ ,stlnc:\ 
         " show print margin
         set colorcolumn=79
+        highlight ColorColumn ctermbg=yellow
         " 与windows共享剪贴板
         set clipboard+=unnamed
         " syntax on

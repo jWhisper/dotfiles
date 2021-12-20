@@ -53,7 +53,7 @@ function packerWrapper:load_packer()
     self.repos = {}
 	self.packer = packer
 
-    vim.cmd [[autocmd User PackerComplete lua require('core.packerWrapper'):run_on_packer_complete()]]
+    -- vim.cmd [[autocmd User PackerComplete lua require('core.packerWrapper'):run_on_packer_complete()]]
 
     return self
 end
@@ -77,6 +77,7 @@ function packerWrapper:clean()
 end
 
 function packerWrapper:install() 
+    -- self.packer.startup(function() use() end)
     for _, u in ipairs(self.repos) do
         if #u ~= 0 then
             -- dump(u)

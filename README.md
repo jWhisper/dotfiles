@@ -8,8 +8,6 @@ font: https://www.nerdfonts.com/font-downloads, https://github.com/ryanoasis/ner
 4. https://zhuanlan.zhihu.com/p/434731678
 
 # TODO
-1. fix format
-2. luasnip
-3. load vim-go
-4. 新增插件的问题
-5. textobject
+1. load vim-go
+2. textobject
+3. theme on macos

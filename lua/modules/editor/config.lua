@@ -1,6 +1,10 @@
 local config = {}
 
 function config.treesitter()
+    -- zc(zC) zo(zO)
+    -- vim.api.nvim_command("set foldmethod=expr")
+    -- vim.api.nvim_command("set foldexpr=nvim_treesitter#foldexpr()")
+
     require'nvim-treesitter.configs'.setup {
         ensure_installed = {"go", "bash", "json", "lua", "python"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
         sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
@@ -8,12 +12,7 @@ function config.treesitter()
         highlight = {
             enable = true,              -- false will disable the whole extension
             disable = { "c", "rust" },  -- list of language that will be disabled
-            -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-            -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-            -- Using this option may slow down your editor, and you may see some duplicate highlights.
-            -- Instead of true it can also be a list of languages
             additional_vim_regex_highlighting = false,
-
         },
         -- 增量选择
         incremental_selection = {
@@ -34,25 +33,11 @@ function config.treesitter()
         textobjects = {
             select = {
                 enable = true,
-
-                -- Automatically jump forward to textobj, similar to targets.vim 
-                lookahead = true,
-
                 keymaps = {
-                    -- You can use the capture groups defined in textobjects.scm
                     ["af"] = "@function.outer",
                     ["if"] = "@function.inner",
                     ["ac"] = "@class.outer",
                     ["ic"] = "@class.inner",
-
-                    -- Or you can define your own textobjects like this
-                    ["iF"] = {
-                        python = "(function_definition) @function",
-                        cpp = "(function_definition) @function",
-                        c = "(function_definition) @function",
-                        go = "(function_definition) @function",
-                        java = "(method_declaration) @function",
-                    },
                 },
             },
             move = {
@@ -73,9 +58,16 @@ function config.treesitter()
                 goto_previous_end = {
                     ["[M"] = "@function.outer",
                     ["[]"] = "@class.outer",
-                },
-            },
+                }
+            }
         },
+        rainbow = {
+            enable = true,
+            extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+            max_file_lines = 1000 -- Do not enable for files with more than 1000 lines, int
+        },
+        context_commentstring = {enable = true, enable_autocmd = false},
+        matchup = {enable = true},
         context = {enable = true, throttle = true},
     }
 end
