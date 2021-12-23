@@ -5,8 +5,8 @@ local ui = {
         -- 'shaunsingh/nord.nvim',
 
         config = function() 
-            -- vim.g.onedark_style = "warm"
-            -- require("onedark").setup{} 
+            vim.g.onedark_style = "warm"
+            require("onedark").setup{} 
             -- vim.cmd[[colorscheme nord]]
         end,
 

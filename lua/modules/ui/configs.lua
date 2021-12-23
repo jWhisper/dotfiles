@@ -20,10 +20,11 @@ function configs.devicons()
 end
 
 function configs.ident_blankline()
-    vim.opt.list = true
     vim.opt.listchars:append("space:⋅")
-    vim.opt.listchars:append("eol:↴")
-    require("ident_blankline").setup{}
+    -- vim.opt.listchars:append("eol:↴")
+    require("ident_blankline").setup{
+        -- space_char_blankline = " ",
+    }
 end
 
 function configs.edge()
@@ -84,7 +85,6 @@ function configs.catppuccin()
             hop = true
         }
     })
-    vim.cmd [[colorscheme catppuccin]]
 end
 
 return configs

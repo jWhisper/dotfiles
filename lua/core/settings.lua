@@ -9,7 +9,7 @@ local function set_general()
     vim.cmd([[
         " set guifont=JetBrainsMono\ Nerd\ Font:h12
 	"防止vim背景颜色错误
-        set t_ut= 
+        "set t_ut= 
 	"开启真颜色吗"
         " set number
         set relativenumber
@@ -49,6 +49,7 @@ local function set_general()
         " 我的状态行显示的内容（包括文件类型和解码）
         set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
         set laststatus=2
+        set list
     ]]) 
     vim.o.background = "dark" -- or "light" for light mode
 
@@ -56,7 +57,7 @@ local function set_general()
     vim.cmd("set nobackup")
     vim.cmd("set backupdir=" .. cache_dir) 
 
-    vim.o.syntax = 'on'
+    -- vim.o.syntax = 'on'
     vim.o.errorbells = false
 end
 

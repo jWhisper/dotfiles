@@ -1,0 +1,31 @@
+# lunux macos: ~/.config/alacritty/alacritty.yml
+# window:%appdata%/alacritty/alacritty.yml
+tabspaces: 4
+
+background_opacity: 0.9
+
+font:
+  normal:
+    family: "SauceCodePro Nerd Font"
+    style: Regular
+  bold:
+    family: "Hack Nerd Font"
+    style: Bold
+  italic:
+    family: "Hack Nerd Font"
+    style: Italic
+  bold_italic:
+    family: "Hack Nerd Font"
+    style: Bold Italic
+
+  size: 16
+
+scrolling:
+
+  history: 10000
+
+  multiplier: 10
+
+#key_bindings:
+#  - { key: V, mods: command, action: Paste }
+#  - { key: C, mods: command, action: Copy }
