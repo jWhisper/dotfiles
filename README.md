@@ -10,4 +10,3 @@ font: https://www.nerdfonts.com/font-downloads, https://github.com/ryanoasis/ner
 # TODO
 1. load vim-go
 2. textobject
-3. theme on macos
