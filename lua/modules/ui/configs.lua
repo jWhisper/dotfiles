@@ -20,7 +20,7 @@ end
 function configs.ident_blankline()
     -- vim.opt.listchars:append("eol:↴")
     require("ident_blankline").setup{
-        -- space_char_blankline = " ",
+        space_char_blankline = " ",
     }
 end
 

@@ -19,11 +19,12 @@ local tools = {
     {
         "jremmen/vim-ripgrep"
     },
-    {
-        "lukas-reineke/format.nvim",
-        cmd = {"Format", "FormatWrite"},
-        config = conf.format
-    },
+    --{
+        -- 使用lsp的format
+    --    "lukas-reineke/format.nvim",
+    --    cmd = {"Format", "FormatWrite"},
+    --    config = conf.format
+    --},
     {
         'folke/which-key.nvim',
         opt=true,

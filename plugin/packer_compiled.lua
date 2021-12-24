@@ -106,15 +106,6 @@ _G.packer_plugins = {
     path = "/root/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["format.nvim"] = {
-    commands = { "Format", "FormatWrite" },
-    config = { "\27LJ\2\2:\0\1\4\0\3\0\0056\1\0\0009\1\1\1'\2\2\0\18\3\0\0D\1\3\0\21lua-format -i %s\vformat\vstring<\0\1\4\0\3\0\0056\1\0\0009\1\1\1'\2\2\0\18\3\0\0D\1\3\0\23clang-format -i %s\vformat\vstring<\0\1\4\0\3\0\0056\1\0\0009\1\1\1'\2\2\0\18\3\0\0D\1\3\0\23clang-format -i %s\vformat\vstring5\0\1\4\0\3\0\0056\1\0\0009\1\1\1'\2\2\0\18\3\0\0D\1\3\0\16shfmt -w %s\vformat\vstring4\0\1\4\0\3\0\0056\1\0\0009\1\1\1'\2\2\0\18\3\0\0D\1\3\0\15rustfmt %s\vformat\vstring±\b\1\0\6\0002\0m6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\6\0004\2\3\0005\3\4\0005\4\3\0=\4\5\3>\3\1\2=\2\a\0014\2\3\0005\3\t\0005\4\b\0=\4\5\3>\3\1\2=\2\n\0014\2\3\0005\3\f\0005\4\v\0=\4\5\3>\3\1\2=\2\r\0014\2\3\0005\3\15\0004\4\3\0003\5\14\0>\5\1\4=\4\5\3>\3\1\2=\2\16\0014\2\3\0005\3\18\0004\4\3\0003\5\17\0>\5\1\4=\4\5\3>\3\1\2=\2\19\0014\2\3\0005\3\21\0004\4\3\0003\5\20\0>\5\1\4=\4\5\3>\3\1\2=\2\22\0014\2\3\0005\3\24\0005\4\23\0=\4\5\3>\3\1\2=\2\25\0014\2\3\0005\3\27\0005\4\26\0=\4\5\3>\3\1\2=\2\28\0014\2\3\0005\3\30\0004\4\3\0003\5\29\0>\5\1\4=\4\5\3>\3\1\2=\2\31\0014\2\3\0005\3!\0004\4\3\0003\5 \0>\5\1\4=\4\5\3>\3\1\2=\2\"\0014\2\3\0005\3$\0005\4#\0=\4\5\3>\3\1\2=\2%\0014\2\3\0005\3'\0005\4&\0=\4\5\3>\3\1\2=\2(\0014\2\3\0005\3*\0005\4)\0=\4\5\3>\3\1\2=\2+\0014\2\3\0005\3-\0005\4,\0=\4\5\3>\3\1\0025\3/\0005\4.\0=\4\5\3>\3\2\2=\0020\1B\0\2\0016\0\n\0009\0\5\0'\0011\0B\0\2\1K\0\1\0'autocmd BufWritePost * FormatWrite\rmarkdown\1\0\3\16end_pattern\n^```$\vtarget\fcurrent\18start_pattern\16^```python$\1\2\0\0\nblack\1\0\0\1\2\0\0\16prettier -w\tjson\1\0\0\1\2\0\0\16prettier -w\15javascript\1\0\0\1\3\0\0\16prettier -w%./node_modules/.bin/eslint --fix\thtml\1\0\0\1\2\0\0\16prettier -w\trust\1\0\0\0\ash\1\0\0\0\vpython\1\0\0\1\2\0\0=python3 -m autopep8 --in-place --aggressive --aggressive\ago\1\0\1\21tempfile_postfix\t.tmp\1\3\0\0\rgofmt -w\17goimports -w\bcpp\1\0\0\0\6c\1\0\0\0\blua\1\0\0\0\fvimwiki\1\0\2\16end_pattern\n^}}}$\18start_pattern\20^{{{javascript$\1\2\0\0\31prettier -w --parser babel\bvim\1\0\2\16end_pattern\n^EOF$\18start_pattern\17^lua << EOF$\1\2\0\0\22luafmt -w replace\6*\1\0\0\bcmd\1\0\0\1\2\0\0\24sed -i 's/[ \t]*$//'\nsetup\vformat\frequire\0" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/root/.local/share/nvim/site/pack/packer/opt/format.nvim",
-    url = "https://github.com/lukas-reineke/format.nvim"
-  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/root/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -240,7 +231,6 @@ _G.packer_plugins = {
     config = { "\27LJ\2\2;\0\0\2\0\3\0\0056\0\0\0009\0\1\0+\1\1\0=\1\2\0K\0\1\0\30go_doc_keywordprg_enabled\6g\bvim\0" },
     loaded = false,
     needs_bufread = true,
-    only_cond = false,
     path = "/root/.local/share/nvim/site/pack/packer/opt/vim-go",
     url = "https://github.com/fatih/vim-go"
   },
@@ -269,10 +259,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-try_loadstring("\27LJ\2\2‚\2\0\0\5\0\n\0\0176\0\0\0009\0\1\0009\0\2\0'\1\3\0'\2\4\0'\3\5\0005\4\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\1\3\0'\2\a\0'\3\b\0005\4\t\0B\0\5\1K\0\1\0\1\0\2\vsilent\2\fnoremap\0025:lua require\"telescope.builtin\".find_files()<CR>\14<leader>f\1\0\2\vsilent\2\fnoremap\0024:lua require\"telescope.builtin\".live_grep()<CR>\14<leader>g\6n\20nvim_set_keymap\bapi\bvim\0", "config", "telescope.nvim")
-time([[Config for telescope.nvim]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+try_loadstring("\27LJ\2\2°\1\0\0\2\0\a\0\r6\0\0\0'\1\1\0B\0\2\0029\0\2\0009\0\3\0005\1\4\0B\0\2\0016\0\0\0'\1\5\0B\0\2\0029\0\6\0B\0\1\1K\0\1\0\tload luasnip/loaders/from_vscode\1\0\2\fhistory\2\17updateevents\29TextChanged,TextChangedI\15set_config\vconfig\fluasnip\frequire\0", "config", "LuaSnip")
+time([[Config for LuaSnip]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 try_loadstring("\27LJ\2\2F\0\1\6\0\3\0\b6\1\0\0009\1\1\0019\1\2\1\18\2\0\0+\3\2\0+\4\2\0+\5\2\0D\1\5\0\27nvim_replace_termcodes\bapi\bvimÐ\1\0\0\a\0\b\2!6\0\0\0006\1\1\0009\1\2\0019\1\3\1)\2\0\0B\1\2\0A\0\0\3\b\1\0\0X\2\20€6\2\1\0009\2\2\0029\2\4\2)\3\0\0\23\4\1\0\18\5\0\0+\6\2\0B\2\5\2:\2\1\2\18\3\2\0009\2\5\2\18\4\1\0\18\5\1\0B\2\4\2\18\3\2\0009\2\6\2'\4\a\0B\2\3\2\n\2\0\0X\2\2€+\2\1\0X\3\1€+\2\2\0L\2\2\0\a%s\nmatch\bsub\23nvim_buf_get_lines\24nvim_win_get_cursor\bapi\bvim\vunpack\0\2C\0\1\3\0\4\0\a6\1\0\0'\2\1\0B\1\2\0029\1\2\0019\2\3\0B\1\2\1K\0\1\0\tbody\15lsp_expand\fluasnip\frequireú\1\0\1\4\4\t\0\"-\1\0\0009\1\0\1B\1\1\2\15\0\1\0X\2\4€-\1\0\0009\1\1\1B\1\1\1X\1\24€-\1\1\0009\1\2\1B\1\1\2\15\0\1\0X\2\t€6\1\3\0009\1\4\0019\1\5\1-\2\2\0'\3\6\0B\2\2\2'\3\a\0B\1\3\1X\1\n€-\1\3\0B\1\1\2\15\0\1\0X\2\4€-\1\0\0009\1\b\1B\1\1\1X\1\2€\18\1\0\0B\1\1\1K\0\1\0\4À\3À\0À\1À\rcomplete\5!<Plug>luasnip-expand-or-jump\rfeedkeys\afn\bvim\23expand_or_jumpable\21select_next_item\fvisibleŸ\1\0\1\3\3\4\0\22-\1\0\0009\1\0\1B\1\1\2\15\0\1\0X\2\4€-\1\0\0009\1\1\1B\1\1\1X\1\f€-\1\1\0009\1\2\1)\2ÿÿB\1\2\2\15\0\1\0X\2\4€-\1\2\0'\2\3\0B\1\2\1X\1\2€\18\1\0\0B\1\1\1K\0\1\0\4À\3À\0À\28<Plug>luasnip-jump-prev\rjumpable\21select_prev_item\fvisible™\6\1\0\v\0004\0_3\0\0\0003\1\1\0006\2\2\0'\3\3\0B\2\2\0026\3\4\0009\3\5\3'\4\a\0=\4\6\0036\3\2\0'\4\b\0B\3\2\0026\4\2\0'\5\t\0B\4\2\0029\5\n\0049\5\v\5'\6\f\0005\a\14\0004\b\3\0005\t\r\0>\t\1\b=\b\15\aB\5\3\0019\5\n\0049\5\v\5'\6\16\0005\a\18\0004\b\3\0005\t\17\0>\t\1\b=\b\15\aB\5\3\0019\5\n\0045\6\22\0005\a\20\0003\b\19\0=\b\21\a=\a\23\0065\a\26\0009\b\24\0049\b\25\bB\b\1\2=\b\27\a9\b\24\0049\b\28\bB\b\1\2=\b\29\a9\b\24\0049\b\30\b)\tüÿB\b\2\2=\b\31\a9\b\24\0049\b\30\b)\t\4\0B\b\2\2=\b \a9\b\24\0049\b!\bB\b\1\2=\b\"\a9\b\24\0049\b#\bB\b\1\2=\b$\a9\b\24\0049\b%\b5\t(\0009\n&\0049\n'\n=\n)\tB\b\2\2=\b*\a9\b\24\0043\t+\0005\n,\0B\b\3\2=\b-\a3\b.\0=\b/\a=\a\24\0064\a\5\0005\b0\0>\b\1\a5\b1\0>\b\2\a5\b2\0>\b\3\a5\b3\0>\b\4\a=\a\15\6B\5\2\0012\0\0€K\0\1\0\1\0\1\tname\tpath\1\0\1\tname\vbuffer\1\0\1\tname\fluasnip\1\0\1\tname\rnvim_lsp\f<S-Tab>\0\n<Tab>\1\3\0\0\6i\6s\0\t<CR>\rbehavior\1\0\1\vselect\2\fReplace\20ConfirmBehavior\fconfirm\n<C-e>\nclose\14<C-Space>\rcomplete\n<C-f>\n<C-d>\16scroll_docs\n<C-n>\21select_next_item\n<C-p>\1\0\0\21select_prev_item\fmapping\fsnippet\1\0\0\vexpand\1\0\0\0\1\0\0\1\0\1\tname\vbuffer\6/\fsources\1\0\0\1\0\1\tname\fcmdline\6:\fcmdline\nsetup\bcmp\fluasnip\21menuone,noselect\16completeopt\6o\bvim\14lspconfig\frequire\0\0\0", "config", "nvim-cmp")
@@ -297,10 +287,10 @@ time([[Config for bufferline.nvim]], false)
 time([[Config for onedark.nvim]], true)
 try_loadstring("\27LJ\2\2b\0\0\2\0\a\0\v6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\4\0'\1\5\0B\0\2\0029\0\6\0004\1\0\0B\0\2\1K\0\1\0\nsetup\fonedark\frequire\twarm\18onedark_style\6g\bvim\0", "config", "onedark.nvim")
 time([[Config for onedark.nvim]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-try_loadstring("\27LJ\2\2°\1\0\0\2\0\a\0\r6\0\0\0'\1\1\0B\0\2\0029\0\2\0009\0\3\0005\1\4\0B\0\2\0016\0\0\0'\1\5\0B\0\2\0029\0\6\0B\0\1\1K\0\1\0\tload luasnip/loaders/from_vscode\1\0\2\fhistory\2\17updateevents\29TextChanged,TextChangedI\15set_config\vconfig\fluasnip\frequire\0", "config", "LuaSnip")
-time([[Config for LuaSnip]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+try_loadstring("\27LJ\2\2‚\2\0\0\5\0\n\0\0176\0\0\0009\0\1\0009\0\2\0'\1\3\0'\2\4\0'\3\5\0005\4\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\1\3\0'\2\a\0'\3\b\0005\4\t\0B\0\5\1K\0\1\0\1\0\2\vsilent\2\fnoremap\0025:lua require\"telescope.builtin\".find_files()<CR>\14<leader>f\1\0\2\vsilent\2\fnoremap\0024:lua require\"telescope.builtin\".live_grep()<CR>\14<leader>g\6n\20nvim_set_keymap\bapi\bvim\0", "config", "telescope.nvim")
+time([[Config for telescope.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 try_loadstring("\27LJ\2\2”\b\0\0\5\0)\0-6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\4\0005\2\3\0=\2\5\0015\2\6\0=\2\a\0015\2\b\0005\3\t\0=\3\n\2=\2\v\0015\2\f\0005\3\r\0=\3\14\2=\2\15\0015\2\16\0=\2\17\0015\2\20\0005\3\18\0005\4\19\0=\4\14\3=\3\21\0025\3\22\0005\4\23\0=\4\24\0035\4\25\0=\4\26\0035\4\27\0=\4\28\0035\4\29\0=\4\30\3=\3\31\2=\2 \0015\2!\0=\2\"\0015\2#\0=\2$\0015\2%\0=\2&\0015\2'\0=\2(\1B\0\2\1K\0\1\0\fcontext\1\0\2\rthrottle\2\venable\2\fmatchup\1\0\1\venable\2\26context_commentstring\1\0\2\19enable_autocmd\1\venable\2\frainbow\1\0\3\19max_file_lines\3è\a\18extended_mode\2\venable\2\16textobjects\tmove\22goto_previous_end\1\0\2\a[M\20@function.outer\a[]\17@class.outer\24goto_previous_start\1\0\2\a[m\20@function.outer\a[[\17@class.outer\18goto_next_end\1\0\2\a]M\20@function.outer\a][\17@class.outer\20goto_next_start\1\0\2\a]m\20@function.outer\a]]\17@class.outer\1\0\2\14set_jumps\2\venable\2\vselect\1\0\0\1\0\4\aif\20@function.inner\aaf\20@function.outer\aac\17@class.outer\aic\17@class.inner\1\0\1\venable\2\vindent\1\0\1\venable\2\26incremental_selection\fkeymaps\1\0\4\19init_selection\t<CR>\21node_decremental\t<BS>\21node_incremental\t<CR>\22scope_incremental\n<TAB>\1\0\1\venable\2\14highlight\fdisable\1\3\0\0\6c\trust\1\0\2&additional_vim_regex_highlighting\1\venable\2\19ignore_install\1\2\0\0\15javascript\21ensure_installed\1\0\1\17sync_install\1\1\6\0\0\ago\tbash\tjson\blua\vpython\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
@@ -317,8 +307,6 @@ time([[Sequenced loading]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Format lua require("packer.load")({'format.nvim'}, { cmd = "Format", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file FormatWrite lua require("packer.load")({'format.nvim'}, { cmd = "FormatWrite", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Git lua require("packer.load")({'vim-fugitive'}, { cmd = "Git", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file StartupTime lua require("packer.load")({'vim-startuptime'}, { cmd = "StartupTime", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file G lua require("packer.load")({'vim-fugitive'}, { cmd = "G", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
@@ -331,21 +319,10 @@ time([[Defining lazy-load keymaps]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
-  -- Filetype lazy-loads
-time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType Go ++once lua require("packer.load")({'vim-go'}, { ft = "Go" }, _G.packer_plugins)]]
-vim.cmd [[au FileType go ++once lua require("packer.load")({'vim-go'}, { ft = "go" }, _G.packer_plugins)]]
-vim.cmd [[au FileType GO ++once lua require("packer.load")({'vim-go'}, { ft = "GO" }, _G.packer_plugins)]]
-time([[Defining lazy-load filetype autocommands]], false)
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
 vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-ts-rainbow'}, { event = "BufRead *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
-vim.cmd("augroup END")
-vim.cmd [[augroup filetypedetect]]
-time([[Sourcing ftdetect script at: /root/.local/share/nvim/site/pack/packer/opt/vim-go/ftdetect/gofiletype.vim]], true)
-vim.cmd [[source /root/.local/share/nvim/site/pack/packer/opt/vim-go/ftdetect/gofiletype.vim]]
-time([[Sourcing ftdetect script at: /root/.local/share/nvim/site/pack/packer/opt/vim-go/ftdetect/gofiletype.vim]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
 

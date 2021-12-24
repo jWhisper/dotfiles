@@ -1,4 +1,5 @@
 api: https://neovim.io/doc/user/api.html
+
 font: https://www.nerdfonts.com/font-downloads, https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf
 
 # nvim inspired by
@@ -10,3 +11,4 @@ font: https://www.nerdfonts.com/font-downloads, https://github.com/ryanoasis/ner
 # TODO
 1. load vim-go
 2. textobject
+3. set list 风格错误

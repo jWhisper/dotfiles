@@ -7,10 +7,8 @@ local function set_general()
     vim.o.mouse = "a"
 
     vim.cmd([[
-        " set guifont=JetBrainsMono\ Nerd\ Font:h12
-        "防止vim背景颜色错误
-        "set t_ut= 
-        " set number
+        "paste模式切换
+        set pastetoggle=<F6>
         set relativenumber
         set notimeout
         set cursorline
@@ -24,33 +22,30 @@ local function set_general()
         set ignorecase
         set hlsearch
         set incsearch
-        "paste模式切换
-        set pastetoggle=<F6>
+
         set tabstop=4
         set softtabstop=4
         set shiftwidth=4
-        "tab -> space
         set expandtab
+        set smarttab
+
         " 截叠行
         set wrap
-        set smarttab
         " 自动格式化
-        set formatoptions=tcrqn
+        "set formatoptions=tcrqn
         " 在被分割的窗口间显示空白，便于阅读
         set fillchars=vert:\ ,stl:\ ,stlnc:\ 
-        " show print margin
-        set colorcolumn=79
+        set colorcolumn=80
         "highlight ColorColumn ctermbg=yellow
         " 与windows共享剪贴板
         set clipboard+=unnamed
-        " syntax on
         " 不要生成swap文件，当buffer被丢弃的时候隐藏它
         setlocal noswapfile
         " 我的状态行显示的内容（包括文件类型和解码）
         set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
         set laststatus=2
         "不可见字符变成可见
-        set list
+        "set list
         set listchars=space:⋅
     ]]) 
     vim.o.background = "dark" -- or "light" for light mode
