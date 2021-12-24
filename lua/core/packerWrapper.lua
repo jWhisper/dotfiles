@@ -51,7 +51,7 @@ function packerWrapper:load_packer()
     packer.use {"wbthomason/packer.nvim"}
 
     self.repos = {}
-	self.packer = packer
+    self.packer = packer
 
     -- vim.cmd [[autocmd User PackerComplete lua require('core.packerWrapper'):run_on_packer_complete()]]
 
@@ -60,20 +60,17 @@ end
 
 function packerWrapper:run_on_packer_complete() 
     vim.fn.delete(compile_path)
-	-- pcall_packer_command("compile")
-	self.packer.compile()
+    self.packer.compile()
     -- log.debug "regenerate compile file..."
-    local stat = vim.loop.fs_stat(compile_path)
-    -- log.debug(vim.inspect(stat))
-	if not utils.is_file(compile_path) then
-		-- log.error "generate compile_file failed..."
-	end
+    if not utils.is_file(compile_path) then
+        -- log.error "generate compile_file failed..."
+    end
 end
 
 
 function packerWrapper:clean()
     log.debug "delete compile_file..."
-	pcall_packer_command("clean")
+    pcall_packer_command("clean")
 end
 
 function packerWrapper:install() 
@@ -85,7 +82,7 @@ function packerWrapper:install()
         end
     end
     self:run_on_packer_complete()
-	self.packer.install()
+    self.packer.install()
     self.repos = nil    
 end
 
