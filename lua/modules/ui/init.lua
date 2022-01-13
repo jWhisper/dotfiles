@@ -5,8 +5,7 @@ local ui = {
         -- 'shaunsingh/nord.nvim',
 
         config = function() 
-            vim.g.onedark_style = "warm"
-            require("onedark").setup{} 
+            require("onedark").load()
             -- vim.cmd[[colorscheme nord]]
         end,
 
@@ -27,8 +26,8 @@ local ui = {
     },
         -- 垂直线
     {
-        "lukas-reineke/indent-blankline.nvim",
-        config = conf.indent_blankline,
+        -- "lukas-reineke/indent-blankline.nvim",
+        -- config = conf.indent_blankline,
     },
 }
 return ui 

@@ -81,8 +81,8 @@ function packerWrapper:install()
             self.packer.use(u)
         end
     end
-    self:run_on_packer_complete()
-    self.packer.install()
+    -- self:run_on_packer_complete()
+    -- self.packer.install()
     self.repos = nil    
 end
 

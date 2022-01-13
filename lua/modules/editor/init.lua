@@ -9,6 +9,13 @@ local editor = {
         -- cmd = {"NvimTreeToggle"},
         config = conf.nvim_tree,
     },
+    --{
+    --    'Shougo/defx.nvim', 
+    --    requires = {
+    --        'kristijanhusak/defx-icons',
+    --    },
+    --    run = ':UpdateRemotePlugins'
+    --},
     {
         'akinsho/bufferline.nvim',
         config = conf.bufferline,

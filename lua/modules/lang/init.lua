@@ -4,7 +4,7 @@ local lang = {
         "fatih/vim-go",
         opt=true,
         -- 没什么用, 就不启动了
-        -- ft = "go",
+        ft = "go",
         run = ":GoInstallBinaries",
         config = conf.lang_go
     }
