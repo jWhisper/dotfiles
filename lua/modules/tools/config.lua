@@ -5,6 +5,9 @@ function config.telconf()
     vim.api.nvim_set_keymap('n', '<leader>f', ':lua require"telescope.builtin".find_files()<CR>', { noremap=true, silent=true})
 end
 
+function config.termconf()
+end
+
 function config.format()
         require("format").setup {
         ["*"] = {

@@ -138,7 +138,7 @@ function config.lspconf()
         buf_set_keymap('n', 'gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
         buf_set_keymap('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
         -- file 
-        buf_set_keymap('n', '<F5>', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+        -- buf_set_keymap('n', '<F5>', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
         buf_set_keymap('n', '<leader>m', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
     end

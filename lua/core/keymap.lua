@@ -16,6 +16,26 @@ end
 function keymap.init() 
     vim.g.mapleader = ","
 
+    vim.api.nvim_exec(
+    [[
+        func! CompileRunGcc()
+            exec "w"
+            if &filetype == 'c'
+                exec "!g++ % -o %<"
+                exec "!time ./%<"
+            elseif &filetype == 'sh'
+                :!time bash %
+            elseif &filetype == 'python'
+                exec "!clear"
+                exec "!time python3 %"
+            elseif &filetype == 'go'
+                exec "!clear"
+                exec "!time go run %"
+            endif
+        endfunc
+        map <F5> :call CompileRunGcc()<CR>
+    ]],
+    true)
     -- c-u 翻屏的时候少一点
     map("n", "<C-u>", "9k", nil)
     map("n", "<C-d>", "9j", nil)
@@ -33,7 +53,6 @@ function keymap.init()
     map("n", "sh", ":sp<CR>", nopt)
     map("n", "sc", "<C-w>c", nopt) -- close current
     map("n", "so", "<C-w>o", nopt) -- close others
-
 end
 
 return keymap

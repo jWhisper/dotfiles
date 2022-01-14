@@ -7,6 +7,7 @@ font: https://www.nerdfonts.com/font-downloads, https://github.com/ryanoasis/ner
 2. https://zhuanlan.zhihu.com/p/382092667 
 3. https://zhuanlan.zhihu.com/p/348257414
 4. https://zhuanlan.zhihu.com/p/434731678
+5. https://github.com/ZenLian/nvim
 
 # TODO
 1. load vim-go
