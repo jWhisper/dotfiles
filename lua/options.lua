@@ -1,7 +1,7 @@
 -- Hint: use `:h <option>` to figure out the meaning if needed
-vim.opt.clipboard = 'unnamedplus' -- use system clipboard
-vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-vim.opt.mouse = 'a' -- allow the mouse to be used in Nvim
+vim.opt.clipboard = "unnamedplus" -- use system clipboard
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.mouse = "a" -- allow the mouse to be used in Nvim
 
 -- Tab
 vim.opt.tabstop = 4 -- number of visual spaces per TAB
@@ -25,6 +25,6 @@ vim.opt.ignorecase = true -- ignore case in searches by default
 vim.opt.smartcase = true -- but make it case sensitive if an uppercase is entered
 
 vim.opt.list = true
-vim.opt.listchars:append('eol:↴')
-vim.opt.listchars:append('tab:¦ ')
-vim.opt.listchars:append('trail:·')
+vim.opt.listchars:append("eol:↴")
+vim.opt.listchars:append("tab:¦ ")
+vim.opt.listchars:append("trail:·")
