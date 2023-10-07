@@ -70,6 +70,7 @@ return require('packer').startup(function(use)
 
         -- async module
         use { 'nvim-lua/plenary.nvim' }
+
         -- Add hooks to LSP to support Linter && Formatter
         use {
             'jay-babu/mason-null-ls.nvim',
@@ -95,6 +96,13 @@ return require('packer').startup(function(use)
                 'nvim-tree/nvim-web-devicons', -- optional, for file icons
             },
             config = [[require('config.nvim-tree')]]
+        }
+
+        use {
+            'nvim-telescope/telescope.nvim', tag = '0.1.3',
+            "nvim-telescope/telescope-file-browser.nvim",
+            requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+            config = [[require('config.telescope')]]
         }
 
         -- status line 
