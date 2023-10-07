@@ -4,6 +4,7 @@ if not is_ok then
 end
 
 configs.setup({
+    modules = {},
 	-- A list of parser names, or "all" (the four listed parsers should always be installed)
 	ensure_installed = {
 		"c",
@@ -76,10 +77,10 @@ configs.setup({
 		-- scope_incremental: in visual mode, increment to the upper scope
 		-- node_decremental: in visual mode, decrement to the previous named node.
 		keymaps = {
-			init_selection = "gnn",
-			node_incremental = "grn",
-			scope_incremental = "grc",
-			node_decremental = "grm",
+			init_selection = "<CR>",
+			node_incremental = "<CR>",
+			scope_incremental = "<BS>",
+			node_decremental = "<TAB>",
 		},
 	},
 })
