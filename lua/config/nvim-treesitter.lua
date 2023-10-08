@@ -4,7 +4,7 @@ if not is_ok then
 end
 
 configs.setup({
-    modules = {},
+	-- modules = {},
 	-- A list of parser names, or "all" (the four listed parsers should always be installed)
 	ensure_installed = {
 		"c",
@@ -13,13 +13,10 @@ configs.setup({
 		"yaml",
 		"toml",
 		"scheme",
-		"scala",
 		"rust",
 		"python",
-		"ocaml",
 		"make",
 		"json",
-		"llvm",
 		"dockerfile",
 		"git_rebase",
 		"gitcommit",
@@ -81,6 +78,28 @@ configs.setup({
 			node_incremental = "<CR>",
 			scope_incremental = "<BS>",
 			node_decremental = "<TAB>",
+		},
+		is_supported = function()
+			local mode = vim.api.nvim_get_mode().mode
+			if mode == "c" then
+				return false
+			end
+			return true
+		end,
+	},
+	textobjects = {
+		select = {
+			enable = true,
+			lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+			keymaps = {
+				-- You can use the capture groups defined in textobjects.scm
+				["aa"] = "@parameter.outer",
+				["ia"] = "@parameter.inner",
+				["af"] = "@function.outer",
+				["if"] = "@function.inner",
+				["ac"] = "@class.outer",
+				["ic"] = "@class.inner",
+			},
 		},
 	},
 })

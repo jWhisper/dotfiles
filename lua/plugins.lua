@@ -42,39 +42,11 @@ return require("packer").startup(function(use)
 	use("tpope/vim-fugitive")
 
 	-- LSP manager
-	use({ "williamboman/mason.nvim" })
-	use({ "williamboman/mason-lspconfig.nvim" })
-	use({ "neovim/nvim-lspconfig" })
-
-	-- auto-completion engine
-	-- use { 'hrsh7th/nvim-cmp', after = 'lspkind.nvim', config = [[require('config.nvim-cmp')]] } -- create nvim-cmp.lua first
-	use({ "hrsh7th/nvim-cmp", config = [[require('config.nvim-cmp')]] }) -- create nvim-cmp.lua first
-	use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" }) -- buffer auto-completion
-	use({ "hrsh7th/cmp-path", after = "nvim-cmp" }) -- path auto-completion
-	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" }) -- cmdline auto-completion
-
-	-- Code snippet engine
-	use("L3MON4D3/LuaSnip")
-	use("saadparwaiz1/cmp_luasnip")
-
-	-- Autopairs: [] () "" '', etc
-	-- it relies on nvim-cmp
 	use({
-		"windwp/nvim-autopairs",
-		after = "nvim-cmp",
-		config = [[require('config.nvim-autopairs')]],
-	})
-
-	-- async module
-	use({ "nvim-lua/plenary.nvim" })
-
-	-- Add hooks to LSP to support Linter && Formatter
-	use({
-		"jay-babu/mason-null-ls.nvim",
-		after = "plenary.nvim",
-		requires = { "jose-elias-alvarez/null-ls.nvim" },
-		config = [[require('config.mason-null-ls')]],
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+		config = [[require('config.mason-lsp')]],
 	})
 
 	-- Treesitter-integration
@@ -87,29 +59,79 @@ return require("packer").startup(function(use)
 		config = [[require('config.nvim-treesitter')]],
 	})
 
-	-- File explorer
 	use({
-		"nvim-tree/nvim-tree.lua",
-		requires = {
-			"nvim-tree/nvim-web-devicons", -- optional, for file icons
-		},
-		config = [[require('config.nvim-tree')]],
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		after = "nvim-treesitter",
+		requires = "nvim-treesitter/nvim-treesitter",
 	})
 
-	use({
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.3",
-		"nvim-telescope/telescope-file-browser.nvim",
-		requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-		config = [[require('config.telescope')]],
-	})
+	---- auto-completion engine
+	--use({ "hrsh7th/nvim-cmp", config = [[require('config.nvim-cmp')]] }) -- create nvim-cmp.lua first
+	--use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
+	--use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" }) -- buffer auto-completion
+	--use({ "hrsh7th/cmp-path", after = "nvim-cmp" }) -- path auto-completion
+	--use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" }) -- cmdline auto-completion
 
-	-- status line
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-		config = [[require('config.lualine')]],
-	})
+	------ Code snippet engine
+	--use("L3MON4D3/LuaSnip")
+	--use("saadparwaiz1/cmp_luasnip")
+
+	---- Autopairs: [] () "" '', etc
+	---- it relies on nvim-cmp
+	--use({
+	--	"windwp/nvim-autopairs",
+	--	after = "nvim-cmp",
+	--	config = [[require('config.nvim-autopairs')]],
+	--})
+
+	---- async module
+	--use({ "nvim-lua/plenary.nvim" })
+
+	---- Add hooks to LSP to support Linter && Formatter
+	--use({
+	--	"jay-babu/mason-null-ls.nvim",
+	--	after = "plenary.nvim",
+	--	requires = { "jose-elias-alvarez/null-ls.nvim" },
+	--	config = [[require('config.mason-null-ls')]],
+	--})
+
+	---- File explorer
+	--use({
+	--	"nvim-tree/nvim-tree.lua",
+	--	requires = {
+	--		"nvim-tree/nvim-web-devicons", -- optional, for file icons
+	--	},
+	--	config = [[require('config.nvim-tree')]],
+	--})
+
+	--use({
+	--	"nvim-telescope/telescope.nvim",
+	--	tag = "0.1.3",
+	--	"nvim-telescope/telescope-file-browser.nvim",
+	--	requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+	--	config = [[require('config.telescope')]],
+	--})
+
+	---- status line
+	--use({
+	--	"nvim-lualine/lualine.nvim",
+	--	requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	--	config = [[require('config.lualine')]],
+	--})
+
+	-- which-key
+	--use({
+	--	"folke/which-key.nvim",
+	--	config = function()
+	--		vim.o.timeout = true
+	--		vim.o.timeoutlen = 300
+	--		require("which-key").setup({
+	--			-- your configuration comes here
+	--			-- or leave it empty to use the default settings
+	--			-- refer to the configuration section below
+	--		})
+	--	end,
+	--})
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

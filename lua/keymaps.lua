@@ -1,7 +1,7 @@
 -- define common options
 local opts = {
-	noremap = true, -- non-recursive
-	silent = true, -- do not show message
+    noremap = true, -- non-recursive
+    silent = true, -- do not show message
 }
 
 vim.g.mapleader = ","
@@ -10,22 +10,24 @@ vim.g.mapleader = ","
 -- Normal mode --
 -----------------
 
--- format null-ls
-vim.keymap.set("n", "<leader>m", function()
-	vim.lsp.buf.format()
-end)
+-- format null-ls, see lsp.lua <space>f
+--vim.keymap.set("n", "<leader>m", function()
+--	vim.lsp.buf.format()
+--end)
 
 -- for nvim-tree
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- telescope
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
--- telescope-file-brower, you can not use nvim-tree
-vim.keymap.set("n", "<leader>fe", ":Telescope file_browser<CR>", { noremap = true })
+local in_ok, builtin = pcall(require, "telescope.builtin")
+if in_ok then
+    vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+    vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+    vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+    vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+    -- telescope-file-brower, you can not use nvim-tree
+    vim.keymap.set("n", "<leader>fe", ":Telescope file_browser<CR>", { noremap = true })
+end
 
 -- Hint: see `:h vim.map.set()`
 -- Better window navigation
