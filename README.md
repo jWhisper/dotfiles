@@ -15,6 +15,7 @@
     - https://zhuanlan.zhihu.com/p/388397656
     - https://martinlwx.github.io/zh-cn/config-neovim-from-scratch/
     - https://developer.aliyun.com/article/1295874
+    - https://github.com/fanxy1/nvim-dotfile/tree/main
 
 ## dependence:
 

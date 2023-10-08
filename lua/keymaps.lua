@@ -10,11 +10,6 @@ vim.g.mapleader = ","
 -- Normal mode --
 -----------------
 
--- format null-ls, see lsp.lua <space>f
---vim.keymap.set("n", "<leader>m", function()
---	vim.lsp.buf.format()
---end)
-
 -- for nvim-tree
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 

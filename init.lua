@@ -1,5 +1,4 @@
 -- vim.notify("Load" .. "config...")
-require("colorscheme")
 require("options")
-require("plugins")
 require("keymaps")
+require("lazy-init")
