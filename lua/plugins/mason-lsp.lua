@@ -59,6 +59,11 @@ return {
 				--vim.keymap.set("n", "<space>f", function()
 				--    vim.lsp.buf.format({ async = true })
 				--end, bufopts)
+				--
+				-- nvim-navic see winbar.lua
+				if client.server_capabilities["documentSymbolProvider"] then
+					require("nvim-navic").attach(client, bufnr)
+				end
 			end
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()

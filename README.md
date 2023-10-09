@@ -2,13 +2,11 @@
 
 ## catalog
 - init.lua 为 Nvim 配置的 Entry point，我们主要用来导入其他 *.lua 文件
-    - colorscheme.lua 配置主题
     - keymaps.lua 配置按键映射
-    - lsp.lua 配置 LSP
     - options.lua 配置选项
-    - plugins.lua 配置插件
+    - lzay-init.lua 加载plugins中所有的插件
 
-- config 用于存放各种插件自身的配置，文件名为插件的名字，这样比较好找。这里的 nvim-cmp.lua 就是 nvim-cmp 插件的配置文件
+- /lua/plugins 存放所有的插件，一般是一个文件代表一个插件 
 
 ## reference:
     - https://zhuanlan.zhihu.com/p/382092667
@@ -18,5 +16,7 @@
     - https://github.com/fanxy1/nvim-dotfile/tree/main
 
 ## dependence:
-
-    brew install git, fd, ripgrep, neovim
+    neovim => 0.7
+    git
+    fd, ripgrep(use for telescope)
+    nodejs
