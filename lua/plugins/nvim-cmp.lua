@@ -34,6 +34,10 @@ return {
 						require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 					end,
 				},
+				window = {
+					completion = cmp.config.window.bordered(),
+					documentation = cmp.config.window.bordered(),
+				},
 				mapping = cmp.mapping.preset.insert({
 					-- Use <C-b/f> to scroll the docs
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -51,9 +55,9 @@ return {
 						-- Hint: if the completion menu is visible select next one
 						if cmp.visible() then
 							cmp.select_next_item()
-						elseif luasnip.expand_or_locally_jumpable() then
-							-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-							-- they way you will only jump inside the snippet region
+						-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+						-- they way you will only jump inside the snippet region
+						elseif luasnip.expand_or_jumpable() then
 							luasnip.expand_or_jump()
 						elseif has_words_before() then
 							cmp.complete()

@@ -26,7 +26,7 @@ return {
 
     {
         "neovim/nvim-lspconfig",
-        dependencies = "williamboman/mason-lspconfig.nvim",
+        dependencies = {"williamboman/mason-lspconfig.nvim", "hrsh7th/cmp-nvim-lsp"},
         config = function()
             local lspconfig = require('lspconfig')
             -- Global mappings.
@@ -61,10 +61,13 @@ return {
                 --end, bufopts)
             end
 
-            lspconfig.pylsp.setup({ on_attach = on_attach })
-            lspconfig.gopls.setup({ on_attach = on_attach })
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+            lspconfig.pylsp.setup({ on_attach = on_attach, capabilities = capabilities })
+            lspconfig.gopls.setup({ on_attach = on_attach, capabilities = capabilities })
             lspconfig.lua_ls.setup({
                 on_attach = on_attach,
+                capabilities = capabilities,
                 settings = {
                     Lua = {
                         runtime = {
