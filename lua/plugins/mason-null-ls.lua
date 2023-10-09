@@ -9,7 +9,7 @@ return {
 		},
 		config = function()
 			require("mason-null-ls").setup({
-				ensure_installed = { "stylua", "black" },
+				ensure_installed = { "stylua", "black", "vale"},
 				automatic_installation = false,
 				-- Sources found installed in mason will automatically be setup for null-ls.
 				automatic_setup = true,
