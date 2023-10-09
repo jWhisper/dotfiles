@@ -16,7 +16,7 @@ return {
 
     {
         "williamboman/mason-lspconfig.nvim",
-        after = "williamboman/mason",
+        dependencies = "williamboman/mason.nvim",
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = { "pylsp", "gopls", "lua_ls", "rust_analyzer" },
@@ -26,7 +26,7 @@ return {
 
     {
         "neovim/nvim-lspconfig",
-        after = "williamboman/mason-lspconfig",
+        dependencies = "williamboman/mason-lspconfig.nvim",
         config = function()
             local lspconfig = require('lspconfig')
             -- Global mappings.
@@ -55,9 +55,10 @@ return {
                 vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
                 vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
                 vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-                vim.keymap.set("n", "<space>f", function()
-                    vim.lsp.buf.format({ async = true })
-                end, bufopts)
+                -- use formatter
+                --vim.keymap.set("n", "<space>f", function()
+                --    vim.lsp.buf.format({ async = true })
+                --end, bufopts)
             end
 
             lspconfig.pylsp.setup({ on_attach = on_attach })

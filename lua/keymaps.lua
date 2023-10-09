@@ -13,17 +13,6 @@ vim.g.mapleader = ","
 -- for nvim-tree
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
--- telescope
-local in_ok, builtin = pcall(require, "telescope.builtin")
-if in_ok then
-    vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-    vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-    vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-    vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-    -- telescope-file-brower, you can not use nvim-tree
-    vim.keymap.set("n", "<leader>fe", ":Telescope file_browser<CR>", { noremap = true })
-end
-
 -- Hint: see `:h vim.map.set()`
 -- Better window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
