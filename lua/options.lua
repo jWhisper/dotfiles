@@ -17,7 +17,7 @@ vim.opt.splitbelow = true -- open new vertical split bottom
 vim.opt.splitright = true -- open new horizontal splits right
 vim.opt.showmode = false -- we are experienced, wo don't need the "-- INSERT --" mode hint
 -- termguicolors 以便 Neovim 可以显示“最佳”版本的配色方案 enable 24-bit RGB color in the TUI
--- vim.opt.termguicolors = true
+--vim.opt.termguicolors = true
 
 -- Searching
 vim.opt.incsearch = true -- search as characters are entered
