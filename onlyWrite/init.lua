@@ -1,4 +1,7 @@
 -- 专门用来写作的，不是用来写代码的配置
+-- GUI
+vim.opt.guifont = 'Fira Code:h18'
+
 -- Hint: use `:h <option>` to figure out the meaning if needed
 vim.opt.clipboard = 'unnamedplus' -- use system clipboard
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
@@ -77,12 +80,19 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
-        "folke/tokyonight.nvim",
+        -- "folke/tokyonight.nvim",
+        "olimorris/onedarkpro.nvim",
         lazy = false, -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
             -- load the colorscheme here
-            vim.cmd([[colorscheme tokyonight]])
+            require("onedarkpro").setup({
+                colors = {
+                    -- cursorline = "#FF0000" 
+                },
+                options = {cursorline = true}
+            })
+            vim.cmd([[colorscheme onedark]])
         end,
     },
     {
@@ -115,4 +125,12 @@ require("lazy").setup({
             vim.keymap.set('n', '<Leader>l', '<Plug>(easymotion-lineforward)', opts)
         end,
     },
+    {
+		"nvim-tree/nvim-tree.lua",
+		dependencies = "nvim-tree/nvim-web-devicons",
+        config = function()
+            require("nvim-tree").setup()
+            vim.keymap.set('n', '<Leader>e', ':NvimTreeToggle<cr>', opts)
+        end,
+    }
 })
