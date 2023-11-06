@@ -2,6 +2,10 @@
 -- GUI
 vim.opt.guifont = 'Fira Code:h18'
 
+--encodeing
+vim.opt.encoding='utf-8'
+vim.opt.fileencoding='utf-8'
+
 -- Hint: use `:h <option>` to figure out the meaning if needed
 vim.opt.clipboard = 'unnamedplus' -- use system clipboard
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
@@ -191,10 +195,23 @@ require("lazy").setup({
             })
 		end,
 	},
-    {'junegunn/goyo.vim'},
-    {'junegunn/limelight.vim'},
+    {
+        "folke/zen-mode.nvim", 
+        opts = {
+            window = {
+                backdrop = 0.95,
+                width = 0.8,
+            }
+        }
+    },
+    {
+        "folke/twilight.nvim",
+        opts = {}
+    },
     {'ron89/thesaurus_query.vim'},
-    {'reedes/vim-pencil'},
+    {
+        'reedes/vim-pencil',
+    },
     {'reedes/vim-wordy'},
     {
         'easymotion/vim-easymotion',
@@ -214,7 +231,4 @@ require("lazy").setup({
         end,
     },
 })
-
-
-
 
