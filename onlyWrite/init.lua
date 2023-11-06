@@ -28,6 +28,11 @@ vim.opt.hlsearch = false -- do not highlight matches
 vim.opt.ignorecase = true -- ignore case in searches by default
 vim.opt.smartcase = true -- but make it case sensitive if an uppercase is entered
 
+vim.opt.list = true
+vim.opt.listchars:append("eol:↴")
+vim.opt.listchars:append("tab:¦ ")
+vim.opt.listchars:append("trail:·")
+
 ------------
 ---keymaps--
 ------------
@@ -65,6 +70,78 @@ vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 vim.keymap.set('v', '<', '<gv', opts)
 vim.keymap.set('v', '>', '>gv', opts)
 
+---------------------------------------------------------
+---------------Function----------------------------------
+---------------------------------------------------------
+
+-- 计算中文英文单词个数
+function wordCount()
+    local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+
+    local cnLen = 0
+    local enWordLen = 0
+
+    for _, line in ipairs(lines) do
+        local preIsLetter = false
+        local i = 1       
+        local len = #line
+
+        while i <= len do     
+            local curByte = string.byte(line, i)  
+            local byteCount = 1                       
+            if curByte > 239 then
+                byteCount = 4  -- 4字节字符
+                if preIsLetter then
+                    enWordLen = enWordLen + 1
+                end
+                preIsLetter = false
+            elseif curByte >= 223 then
+                byteCount = 3  -- 3字节
+                -- 判断是否中文 第一个字节是228-233，而且接下来两个字节都是 128-191
+                if curByte >= 228 and curByte <= 233 and i+1 <= len and i+2 <= len then
+                    local b2 = string.byte(line, i+1)
+                    local b3 = string.byte(line, i+2)
+                    if b2 >= 128 and b2 <= 191 and b3 >= 128 and b3 <= 191 then
+                        cnLen = cnLen + 1
+                    end
+                end
+                if preIsLetter then
+                    enWordLen = enWordLen + 1
+                end
+                preIsLetter = false
+            elseif curByte > 128 then
+                byteCount = 2  -- 双字节字符
+                if preIsLetter then
+                    enWordLen = enWordLen + 1
+                end
+                preIsLetter = false
+            elseif (curByte >= 65 and curByte <= 90) or (curByte >= 97 and curByte <= 122) then
+                byteCount = 1 -- 单字符不过是字母
+                if not preIsLetter then
+                    preIsLetter = true
+                end
+                if i == len then
+                    enWordLen = enWordLen + 1
+                end
+            else
+                byteCount = 1  -- 单字节字符
+                if preIsLetter then
+                    enWordLen = enWordLen + 1
+                end
+                preIsLetter = false
+            end
+
+            i = i + byteCount
+        end
+    end
+    local result = string.format("cn:%d en:%d",cnLen, enWordLen)
+    return result
+end
+
+
+-------------------------------------------------------------
+
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -85,7 +162,6 @@ require("lazy").setup({
         lazy = false, -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
-            -- load the colorscheme here
             require("onedarkpro").setup({
                 colors = {
                     -- cursorline = "#FF0000" 
@@ -108,7 +184,11 @@ require("lazy").setup({
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
 		config = function()
-			require("lualine").setup({})
+			require("lualine").setup({
+                sections = {
+                    lualine_y = { wordCount, 'progress' },
+                }
+            })
 		end,
 	},
     {'junegunn/goyo.vim'},
@@ -132,5 +212,9 @@ require("lazy").setup({
             require("nvim-tree").setup()
             vim.keymap.set('n', '<Leader>e', ':NvimTreeToggle<cr>', opts)
         end,
-    }
+    },
 })
+
+
+
+
