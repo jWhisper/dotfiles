@@ -24,7 +24,6 @@ vim.opt.cursorline = true -- highlight cursor line underneath the cursor horizon
 vim.opt.splitbelow = true -- open new vertical split bottom
 vim.opt.splitright = true -- open new horizontal splits right
 vim.opt.termguicolors = true -- enabl 24-bit RGB color in the TUI
--- vim.opt.showmode = false -- we are experienced, wo don't need the "-- INSERT --" mode hint
 
 -- Searching
 vim.opt.incsearch = true -- search as characters are entered
@@ -52,34 +51,36 @@ local opts = {
 -----------------
 -- Normal mode --
 -----------------
+local map = vim.keymap.set
+map('n', '<C-s>', ':w<CR>', opts)
 
 -- Hint: see `:h vim.map.set()`
 -- Better window navigation
-vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
-vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
-vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
-vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
+map('n', '<C-h>', '<C-w>h', opts)
+map('n', '<C-j>', '<C-w>j', opts)
+map('n', '<C-k>', '<C-w>k', opts)
+map('n', '<C-l>', '<C-w>l', opts)
 
 -- Resize with arrows
 -- delta: 2 lines
-vim.keymap.set('n', '<C-Up>', ':resize -2<CR>', opts)
-vim.keymap.set('n', '<C-Down>', ':resize +2<CR>', opts)
-vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', opts)
-vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', opts)
+map('n', '<C-Up>', ':resize -2<CR>', opts)
+map('n', '<C-Down>', ':resize +2<CR>', opts)
+map('n', '<C-Left>', ':vertical resize -2<CR>', opts)
+map('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 
 -----------------
 -- Visual mode --
 -----------------
 -- Hint: start visual mode with the same area as the previous area and the same mode
-vim.keymap.set('v', '<', '<gv', opts)
-vim.keymap.set('v', '>', '>gv', opts)
+map('v', '<', '<gv', opts)
+map('v', '>', '>gv', opts)
 
 -----------------
 --- Function ----
 -----------------
 
 -- 计算中文英文单词个数
-function wordCount()
+local function wordCount()
     local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
 
     local cnLen = 0
@@ -203,12 +204,30 @@ require("lazy").setup({{
     "folke/twilight.nvim",
     opts = {}
 }, {
-    'easymotion/vim-easymotion',
+    -- 这个插件支持中文跳转的
+    "cstsunfu/pounce_zh.nvim",
     config = function()
-        vim.keymap.set('n', '<Leader>h', '<Plug>(easymotion-linebackward)', opts)
-        vim.keymap.set('n', '<Leader>j', '<Plug>(easymotion-j)', opts)
-        vim.keymap.set('n', '<Leader>k', '<Plug>(easymotion-k)', opts)
-        vim.keymap.set('n', '<Leader>l', '<Plug>(easymotion-lineforward)', opts)
+        map("n", "<Leader>s", function()
+            require'pounce'.pounce {}
+        end)
+        map("n", "<Leader>S", function()
+            require'pounce'.pounce {
+                do_repeat = true
+            }
+        end)
+        map("x", "<Leader>s", function()
+            require'pounce'.pounce {}
+        end)
+        map("o", "gs", function()
+            require'pounce'.pounce {}
+        end)
+        map("n", "<Leader>rs", function()
+            require'pounce'.pounce {
+                input = {
+                    reg = "/"
+                }
+            }
+        end)
     end
 }, {
     "nvim-tree/nvim-tree.lua",
@@ -217,4 +236,10 @@ require("lazy").setup({{
         require("nvim-tree").setup()
         vim.keymap.set('n', '<Leader>e', ':NvimTreeToggle<cr>', opts)
     end
-}, {'ron89/thesaurus_query.vim'}, {'reedes/vim-pencil'}, {'reedes/vim-wordy'}})
+}, {
+    'preservim/vim-markdown',
+    dependencies = 'godlygeek/tabular',
+    config = function()
+        vim.g.vim_markdown_folding_disabled = 1
+    end
+}, {'ron89/thesaurus_query.vim'}})
