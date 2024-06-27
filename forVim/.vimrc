@@ -1,9 +1,9 @@
-" how to install
-" 1, install vim-plug
-" 2, install ycm if needed
-" https://www.ruanyifeng.com/blog/2018/09/vimrc.html
+"For window gvim version
+set guifont=FiraMono_Nerd_Font:h16
+set lines=35 columns=118
+winpos 300 0
+
 " 基础设置
-"
 let mapleader=','
 "
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
@@ -13,9 +13,9 @@ set relativenumber
 set nocompatible "不与vi兼容
 set showmode
 set showcmd
-"set mouse=a
+set mouse=a
 set encoding=utf-8
-set t_Co=256 " 启用256色
+"set t_Co=256 " 启用256色
 filetype indent on " 开启文件类型检查，并且载入与该类型对应的缩进规则
 
 " 缩进
@@ -75,48 +75,34 @@ map <C-d> 9j
 
 
 " 插件开始的位置
-call plug#begin('~/.vim/plugged')
+call plug#begin()
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 " 可以快速对齐的插件
 Plug 'junegunn/vim-easy-align'
+
+Plug 'easymotion/vim-easymotion'
 
 " 自动补全括号的插件，包括小括号，中括号，以及花括号
 Plug 'jiangmiao/auto-pairs'
 
 " 用来提供一个导航目录的侧边栏
 Plug 'scrooloose/nerdtree'
-" 可以在导航目录中看到 git 版本信息
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" 大纲式导航, Go 需要 https://github.com/jstemmer/gotags 支持
-Plug 'majutsushi/tagbar'
-
-" Vim状态栏插件，包括显示行号，列号，文件类型，文件名，以及Git状态
-Plug 'vim-airline/vim-airline'
-
-" 可以在文档中显示 git 信息
-Plug 'airblade/vim-gitgutter'
-
-" 代码补全
-Plug 'jayli/vim-easycomplete'
-" 下面两个插件要配合使用，可以自动生成代码块
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 
 " 配色方案
 Plug 'KeitaNakamura/neodark.vim'
-
-" go 主要插件
-Plug 'fatih/vim-go', { 'tag': '*' , 'do': ':GoUpdateBinaries' }
 
 " markdown 插件
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'
 
-" 插件结束的位置，插件全部放在此行上面
+Plug 'machakann/vim-highlightedyank'
+
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+
 call plug#end()
 
+" 以下是每个插件的具体配置
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
@@ -127,14 +113,23 @@ colorscheme neodark
 
 nnoremap <leader>n :NERDTreeToggle<CR>
 
-" vim-easycomplete config
-" Highlight the symbol when holding the cursor
-let g:easycomplete_cursor_word_hl = 1
-" Using nerdfont is highly recommended
-let g:easycomplete_nerd_font = 1
+" for which-key
+nnoremap <silent> <leader> :<c-u>WhichKey ','<CR>
+" By default timeoutlen is 1000 ms
+set timeoutlen=500
 
-" GoTo code navigation
-noremap gr :EasyCompleteReference<CR>
-noremap gd :EasyCompleteGotoDefinition<CR>
-noremap rn :EasyCompleteRename<CR>
-noremap gb :BackToOriginalBuffer<CR>
+"for easy-motion
+" <Leader>f{char} to move to {char}
+"map  <Leader>f <Plug>(easymotion-bd-f)
+"nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+"nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+"map <Leader>L <Plug>(easymotion-bd-jk)
+"nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+"map  <Leader>w <Plug>(easymotion-bd-w)
+"nmap <Leader>w <Plug>(easymotion-overwin-w)
