@@ -55,6 +55,7 @@ set autochdir
 set noerrorbells " 出错时，不要发出响声
 set visualbell
 set history=1000
+"set backspace=indent,eol,start "修复backspace不能使用的问题
 set listchars=tab:\|\ ,trail:■
 set list
 
