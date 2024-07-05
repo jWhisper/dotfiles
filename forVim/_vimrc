@@ -1,7 +1,7 @@
 "For window gvim version
-set guifont=FiraMono_Nerd_Font:h16
-set lines=35 columns=100
-winpos 300 0
+"set guifont=FiraMono_Nerd_Font:h16
+"set lines=35 columns=100
+"winpos 300 0
 
 " 基础设置
 let mapleader=','
@@ -15,7 +15,7 @@ set showmode
 set showcmd
 set mouse=a
 set encoding=utf-8
-"set t_Co=256 " 启用256色
+set t_Co=256 " 启用256色
 filetype indent on " 开启文件类型检查，并且载入与该类型对应的缩进规则
 
 " 缩进
