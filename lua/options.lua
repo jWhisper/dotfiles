@@ -26,9 +26,10 @@ vim.opt.ignorecase = true -- ignore case in searches by default
 vim.opt.smartcase = true -- but make it case sensitive if an uppercase is entered
 
 vim.opt.list = true
-vim.opt.listchars:append("eol:↴")
+--vim.opt.listchars:append("eol:↴")
 vim.opt.listchars:append("tab:¦ ")
 vim.opt.listchars:append("trail:·")
+
 
 -- markdown
 vim.g.vim_markdown_frontmatter = 1

@@ -1,5 +1,5 @@
 -- vim.notify("Load" .. "config...")
 require("options")
 require("keymaps")
+require("autocmd")
 require("lazy-init")
--- require("im-select")
