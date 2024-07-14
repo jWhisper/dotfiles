@@ -10,6 +10,7 @@
   "flash.nvim": { "branch": "main", "commit": "a40f0dc7015f310b03f03324b845185d445736a3" },
   "formatter.nvim": { "branch": "master", "commit": "ad246d34ce7a32f752071ed81b09b94e6b127fad" },
   "friendly-snippets": { "branch": "main", "commit": "45a1b96e46efe5fce8af325d4bed45feb9d29d0f" },
+  "hop.nvim": { "branch": "master", "commit": "036462a345792279c58f2f6445756efab706f04a" },
   "im-select.nvim": { "branch": "master", "commit": "c2b414bd1bcfcea1af8319ae7cc988ef16548417" },
   "lazy.nvim": { "branch": "main", "commit": "58c6bc4ab298dc0d808d325754585f918a031919" },
   "lualine.nvim": { "branch": "master", "commit": "6a40b530539d2209f7dc0492f3681c8c126647ad" },
