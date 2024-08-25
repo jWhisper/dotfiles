@@ -26,6 +26,7 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 
 vim.keymap.set("n", "<leader>q", "<cmd>:q<CR>", { desc = "[Q]uit current window" })
 vim.keymap.set("n", "<C-q>", "<cmd>:qall<CR>", { desc = "Quit all window" })
+vim.keymap.set("n", "<C-s>", "<cmd>:w<CR>", { desc = "Save" })
 
 vim.keymap.set("n", "<C-u>", "9k", { desc = "Move up 9 lines" })
 vim.keymap.set("n", "<C-d>", "9j", { desc = "Move down 9 lines" })
