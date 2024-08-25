@@ -1,47 +1,39 @@
--- define common options
-local opts = {
-	noremap = true, -- non-recursive
-	silent = true, -- do not show message
-}
-
 vim.g.mapleader = ","
+vim.g.maplocalleader = ","
 
------------------
--- Normal mode --
------------------
+--"n"：普通模式（Normal mode）
+--"i"：插入模式（Insert mode）
+--"v"：视觉模式（Visual mode）
+--"x"：选择模式（Select mode）
+--"s"：选择模式（Select mode）
+--"c"：命令行模式（Command-line mode）
+--"o"：操作符等待模式（Operator-pending mode）
+--"t"：终端模式（Terminal mode）
 
--- for nvim-tree
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+-- [[ Basic Keymaps ]]
+--  See `:help vim.keymap.set()`
 
--- Hint: see `:h vim.map.set()`
+-- Clear highlights on search when pressing <Esc> in normal mode
+--  See `:help hlsearch`
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
 -- Better window navigation
-vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
-vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
-vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
-vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
+--  See `:help wincmd` for a list of all window commands
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Resize with arrows
--- delta: 2 lines
-vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", opts)
-vim.keymap.set("n", "<C-Down>", ":resize +2<CR>", opts)
-vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+vim.keymap.set('n', '<leader>q', '<cmd>:q<CR>', { desc = 'Quit current window' })
+vim.keymap.set('n', '<C-q>', '<cmd>:qall<CR>', { desc = 'Quit all window' })
 
--- 上下滚动浏览
-vim.keymap.set("n", "<C-j>", "4j", opts)
-vim.keymap.set("n", "<C-k>", "4k", opts)
--- ctrl u / ctrl + d  只移动9行，默认移动半屏
-vim.keymap.set("n", "<C-u>", "9k", opts)
-vim.keymap.set("n", "<C-d>", "9j", opts)
-
------------------
--- Visual mode --
------------------
+vim.keymap.set("n", "<C-u>", "9k", {desc = 'Move up 9 lines'})
+vim.keymap.set("n", "<C-d>", "9j", {desc = 'Move down 9 lines'})
 
 -- Hint: start visual mode with the same area as the previous area and the same mode
-vim.keymap.set("v", "<", "<gv", opts)
-vim.keymap.set("v", ">", ">gv", opts)
+vim.keymap.set("v", "<", "<gv", {})
+vim.keymap.set("v", ">", ">gv", {})
 
--- 上下移动选中文本
-vim.keymap.set("v", "K", ":move '<-2<CR>gv-gv", opts)
-vim.keymap.set("v", "J", ":move '>+1<CR>gv-gv", opts)
+-- swap the selected text line
+vim.keymap.set("v", "K", ":move '<-2<CR>gv-gv", {desc = 'Swap with the previous line'})
+vim.keymap.set("v", "J", ":move '>+1<CR>gv-gv", {desc = 'Swap with the next line'})
