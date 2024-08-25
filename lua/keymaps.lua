@@ -15,25 +15,25 @@ vim.g.maplocalleader = ","
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Better window navigation
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
-vim.keymap.set('n', '<leader>q', '<cmd>:q<CR>', { desc = 'Quit current window' })
-vim.keymap.set('n', '<C-q>', '<cmd>:qall<CR>', { desc = 'Quit all window' })
+vim.keymap.set("n", "<leader>q", "<cmd>:q<CR>", { desc = "[Q]uit current window" })
+vim.keymap.set("n", "<C-q>", "<cmd>:qall<CR>", { desc = "Quit all window" })
 
-vim.keymap.set("n", "<C-u>", "9k", {desc = 'Move up 9 lines'})
-vim.keymap.set("n", "<C-d>", "9j", {desc = 'Move down 9 lines'})
+vim.keymap.set("n", "<C-u>", "9k", { desc = "Move up 9 lines" })
+vim.keymap.set("n", "<C-d>", "9j", { desc = "Move down 9 lines" })
 
 -- Hint: start visual mode with the same area as the previous area and the same mode
 vim.keymap.set("v", "<", "<gv", {})
 vim.keymap.set("v", ">", ">gv", {})
 
 -- swap the selected text line
-vim.keymap.set("v", "K", ":move '<-2<CR>gv-gv", {desc = 'Swap with the previous line'})
-vim.keymap.set("v", "J", ":move '>+1<CR>gv-gv", {desc = 'Swap with the next line'})
+vim.keymap.set("v", "K", ":move '<-2<CR>gv-gv", { desc = "Swap with the previous line" })
+vim.keymap.set("v", "J", ":move '>+1<CR>gv-gv", { desc = "Swap with the next line" })
