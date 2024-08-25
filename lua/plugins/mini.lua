@@ -21,6 +21,8 @@ return {
 		-- pairs
 		require("mini.pairs").setup()
 
+		require("mini.diff").setup()
+
 		require("mini.tabline").setup({
 			format = function(buf_id, label)
 				local suffix = vim.bo[buf_id].modified and "+ " or ""
