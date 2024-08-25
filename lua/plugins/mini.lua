@@ -1,6 +1,7 @@
 return {
 	"echasnovski/mini.nvim",
 	version = "*",
+	dependencies = { "echasnovski/mini.icons" },
 	config = function()
 		-- Better Around/Inside textobjects
 		--
@@ -20,6 +21,13 @@ return {
 		-- pairs
 		require("mini.pairs").setup()
 
+		require("mini.tabline").setup({
+			format = function(buf_id, label)
+				local suffix = vim.bo[buf_id].modified and "+ " or ""
+				return MiniTabline.default_format(buf_id, label) .. suffix
+			end,
+		})
+
 		-- Simple and easy statusline.
 		--  You could remove this setup call if you don't like it,
 		--  and try some other statusline plugin
@@ -32,7 +40,10 @@ return {
 		-- cursor location to LINE:COLUMN
 		---@diagnostic disable-next-line: duplicate-set-field
 		statusline.section_location = function()
-			return "%2l:%-2v"
+			local line_col = "%2l:%-2v"
+			return line_col
+			-- local time = os.date("%H:%M")
+			-- return string.format("%s %s", line_col, time)
 		end
 
 		-- ... and there is more!

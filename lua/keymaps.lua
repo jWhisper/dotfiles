@@ -37,3 +37,26 @@ vim.keymap.set("v", ">", ">gv", {})
 -- swap the selected text line
 vim.keymap.set("v", "K", ":move '<-2<CR>gv-gv", { desc = "Swap with the previous line" })
 vim.keymap.set("v", "J", ":move '>+1<CR>gv-gv", { desc = "Swap with the next line" })
+
+vim.api.nvim_set_keymap("n", "tc", ":tabclose<CR>", { noremap = true, silent = true, desc = "[C]lose current tab" })
+vim.api.nvim_set_keymap(
+	"n",
+	"to",
+	":tabonly<CR>",
+	{ noremap = true, silent = true, desc = "close all tab, [O]nly one" }
+)
+vim.api.nvim_set_keymap("n", "tn", ":tabnext<CR>", { noremap = true, silent = true, desc = "toggle [Next] tab" })
+vim.api.nvim_set_keymap(
+	"n",
+	"tp",
+	":tabprevious<CR>",
+	{ noremap = true, silent = true, desc = "toggle [P]revious tab" }
+)
+for i = 1, 3 do
+	vim.api.nvim_set_keymap(
+		"n",
+		"<leader>" .. i,
+		":tabnext " .. i .. "<CR>",
+		{ noremap = true, silent = true, desc = "[M]ove to tab " .. i }
+	)
+end

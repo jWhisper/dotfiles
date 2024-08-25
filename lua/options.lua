@@ -1,5 +1,5 @@
 vim.loader.enable()
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- vim.opt.termguicolors = true
 
