@@ -6,9 +6,9 @@ vim.g.have_nerd_font = false
 vim.opt.number = true -- show absolute number
 vim.opt.relativenumber = true -- add numbers to each line on the left side
 
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+--vim.opt.tabstop = 4
+--vim.opt.shiftwidth = 4
+--vim.opt.expandtab = true
 
 vim.opt.showmode = false -- we are experienced, wo don't need the "-- INSERT --" mode hint
 vim.opt.cursorline = true -- highlight cursor line underneath the cursor horizontally
@@ -44,7 +44,7 @@ vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 
 vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = "¦ ", trail = "·", nbsp = "␣" }
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 5
