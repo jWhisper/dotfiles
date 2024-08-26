@@ -3,7 +3,7 @@ return {
 	version = "*",
 	dependencies = { "echasnovski/mini.icons" },
 	config = function()
-		require("mini.starter").setup()
+		-- require("mini.starter").setup()
 
 		-- Better Around/Inside textobjects
 		--
