@@ -43,6 +43,8 @@ local ascii_arts = {
 }
 return {
 	"goolord/alpha-nvim",
+	-- use "mini.starter"
+	enabled = "false",
 	dependencies = { "echasnovski/mini.icons" },
 	config = function()
 		local dashboard = require("alpha.themes.startify")
