@@ -1,4 +1,6 @@
-vim.loader.enable()
+if vim.loader then
+	vim.loader.enable()
+end
 vim.g.have_nerd_font = true
 
 -- vim.opt.termguicolors = true
