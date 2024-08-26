@@ -2,6 +2,8 @@ require("options")
 require("keymaps")
 require("autocmd")
 
+-- TODO: neo-tree open focus on curren file
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

@@ -26,12 +26,8 @@ return {
 
 		require("mini.diff").setup()
 
-		require("mini.tabline").setup({
-			format = function(buf_id, label)
-				local suffix = vim.bo[buf_id].modified and "+ " or ""
-				return MiniTabline.default_format(buf_id, label) .. suffix
-			end,
-		})
+		-- use bufferline
+		-- require("mini.tabline").setup()
 
 		local statusline = require("mini.statusline")
 		-- set use_icons to true if you have a Nerd Font

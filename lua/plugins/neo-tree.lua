@@ -38,10 +38,10 @@ return {
 					noremap = true,
 					nowait = true,
 				},
-				mappings = {
-					["<cr>"] = "open_tabnew", -- overwirte <cr> not reopen a new window
-					["<2-LeftMouse>"] = "open_tabnew",
-				},
+				-- mappings = {
+				-- ["<cr>"] = "open_tabnew", -- overwirte <cr> not reopen a new window
+				-- ["<2-LeftMouse>"] = "open_tabnew",
+				-- k},
 			},
 		})
 	end,

@@ -17,12 +17,11 @@ vim.g.maplocalleader = ","
 --  See `:help hlsearch`
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
--- Better window navigation
 --  See `:help wincmd` for a list of all window commands
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move focus to the right window" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move focus to the lower window" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move focus to the upper window" })
 
 vim.keymap.set("n", "<leader>q", "<cmd>:q<CR>", { desc = "[Q]uit current window" })
 vim.keymap.set("n", "<C-q>", "<cmd>:qall<CR>", { desc = "Quit all window" })
@@ -38,26 +37,3 @@ vim.keymap.set("v", ">", ">gv", {})
 -- swap the selected text line
 vim.keymap.set("v", "K", ":move '<-2<CR>gv-gv", { desc = "Swap with the previous line" })
 vim.keymap.set("v", "J", ":move '>+1<CR>gv-gv", { desc = "Swap with the next line" })
-
-vim.api.nvim_set_keymap("n", "tc", ":tabclose<CR>", { noremap = true, silent = true, desc = "[C]lose current tab" })
-vim.api.nvim_set_keymap(
-	"n",
-	"to",
-	":tabonly<CR>",
-	{ noremap = true, silent = true, desc = "close all tab, [O]nly one" }
-)
-vim.api.nvim_set_keymap("n", "tn", ":tabnext<CR>", { noremap = true, silent = true, desc = "toggle [Next] tab" })
-vim.api.nvim_set_keymap(
-	"n",
-	"tp",
-	":tabprevious<CR>",
-	{ noremap = true, silent = true, desc = "toggle [P]revious tab" }
-)
-for i = 1, 3 do
-	vim.api.nvim_set_keymap(
-		"n",
-		"<leader>" .. i,
-		":tabnext " .. i .. "<CR>",
-		{ noremap = true, silent = true, desc = "[M]ove to tab " .. i }
-	)
-end
