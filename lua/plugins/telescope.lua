@@ -65,6 +65,7 @@ return {
 					project = {
 						base_dirs = {
 							{ "~/workSpace/src", max_depth = 2 },
+							{ "C:/workSpace/mycode/src", max_depth = 2 },
 						},
 						hidden_files = true,
 					},

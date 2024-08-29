@@ -21,3 +21,5 @@
     neovim => 0.8
     git, gcc, ripgrep
 
+    optional: nerd font
+
