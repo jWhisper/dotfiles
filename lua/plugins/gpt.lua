@@ -1,6 +1,7 @@
 return {
 	-- Details: https://github.com/Robitx/gp.nvim
 	"robitx/gp.nvim",
+	event = "VeryLazy",
 	config = function()
 		local os = require("os")
 		local conf = {

@@ -66,6 +66,7 @@ sudo rm -rf /opt/nvim && sudo tar -C /opt -xzf nvim-linux64.tar.gz
 # 安装nerd font
 mkdir -p ~/.local/share/fonts
 cd ~/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraMono/Medium/FiraMonoNerdFont-Medium.otf
+fc-cache -rv
 
 # 配置 Path环境变量
 echo "export PATH=\$PATH:/usr/local/go/bin:\$HOME/go/bin:/opt/nvim-linux64/bin" >> ~/.zshrc
