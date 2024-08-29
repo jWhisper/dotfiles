@@ -184,6 +184,7 @@ return {
 				-- But for many setups, the LSP (`tsserver`) will work just fine
 				-- tsserver = {},
 				jsonls = {},
+				markdownlint = {},
 
 				lua_ls = {
 					-- cmd = {...},
