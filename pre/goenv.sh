@@ -28,9 +28,10 @@ EOF
 
 # 更新包列表并安装基本软件
 sudo apt-get update
-sudo apt-get install -y git docker.io zsh wget curl unzip fzf python3 python3-pip nodejs npm ripgrep fd-find openssh-client openssh-server
+sudo apt-get install -y git zsh wget curl unzip fzf python3 python3-pip nodejs npm ripgrep fd-find openssh-client openssh-server xclip
 
 # 安装 docker-compose
+sudo apt install -y docker.io 
 DOCKER_COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep -Po '"tag_name": "\K.*?(?=")')
 sudo curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
