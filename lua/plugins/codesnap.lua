@@ -2,6 +2,10 @@ return {
 	"mistricky/codesnap.nvim",
 	build = "make",
 	-- event = "VeryLazy",
+	cond = function(plugin)
+		-- :lua print(vim.loop.os_uname().sysname)
+		return vim.loop.os_uname().sysname ~= "Windows_NT"
+	end,
 	cmd = "CodeSnap",
 	config = function()
 		require("codesnap").setup({
