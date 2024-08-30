@@ -29,6 +29,8 @@ require("lazy").setup({
 		end,
 	},
 
+	-- current best multicursor IMHO
+	{ "mg979/vim-visual-multi", lazy = true, keys = { { "<C-n>", mode = { "n", "x" } } } },
 	{
 		"folke/todo-comments.nvim",
 		event = "VeryLazy",
