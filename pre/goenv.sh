@@ -28,7 +28,7 @@ EOF
 
 # 更新包列表并安装基本软件
 sudo apt-get update
-sudo apt-get install -y git zsh wget curl unzip fzf python3 python3-pip nodejs npm ripgrep fd-find openssh-client openssh-server xclip
+sudo apt-get install -y git zsh wget curl unzip fzf python3 python3-pip nodejs npm ripgrep fd-find openssh-client openssh-server xclip tmux
 
 # 安装 docker-compose
 sudo apt install -y docker.io 
@@ -66,7 +66,13 @@ sudo rm -rf /opt/nvim && sudo tar -C /opt -xzf nvim-linux64.tar.gz
 # 安装nerd font
 mkdir -p ~/.local/share/fonts
 cd ~/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraMono/Medium/FiraMonoNerdFont-Medium.otf
-fc-cache -rv
+if command -v fc-cache >/dev/null 2>&1; then
+    echo "fc-cache 命令存在"
+else
+    echo "fc-cache 命令不存在"
+    sudo apt install -y fontconfig
+fi
+fc-cache -fv
 
 # 配置 Path环境变量
 echo "export PATH=\$PATH:/usr/local/go/bin:\$HOME/go/bin:/opt/nvim-linux64/bin" >> ~/.zshrc
