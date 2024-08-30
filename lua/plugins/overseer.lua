@@ -20,6 +20,11 @@ return {
 				end
 			end)
 		end, {})
-		vim.keymap.set("n", "<leader>cr", ":WatchRun<cr>", { noremap = true, silent = true })
+		vim.keymap.set(
+			"n",
+			"<leader>cr",
+			":WatchRun<cr>",
+			{ noremap = true, silent = true, desc = "WatchRun with Overseer" }
+		)
 	end,
 }
