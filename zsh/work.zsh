@@ -1,5 +1,5 @@
 # GPT key
-export KIMI_API_KEY="sk-z2ZT2cqoj5iYD5O20rBKvNUmQlEvrK91d59Q9PQ9v4LBOj6L"
+export KIMI_API_KEY="you gpt key"
 
 # Go language setting
 export PATH=$(go env GOPATH)/bin:$PATH
