@@ -88,8 +88,7 @@ if [ -d "$SSH_BACKUP_DIR" ]; then
     chmod 644 ~/.ssh/id_rsa.pub
     chmod 644 ~/.ssh/config
 else
-    echo "Warning: SSH key backup directory '$SSH_BACKUP_DIR' does not exist. Skipping SSH key restoration."
-    exit 1
+    echo "Skipping SSH key restoration. Do you want to generate it?"
 fi
 
 echo "Setup completed! Please restart your terminal or source ~/.zshrc to apply changes."
