@@ -38,6 +38,10 @@ git config --global user.email "$GIT_EMAIL"
 # 安装ranger
 pip3 install ranger-fm
 
+# 安装tmux 插件
+mkdir -p ~/.config/tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+
 # Zsh
 cp -r ../zsh ~/.config
 cp ../zsh/.zshrc ~/.zshrc
