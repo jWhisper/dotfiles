@@ -3,11 +3,6 @@
 # 配置变量
 GIT_NAME="your_name"
 GIT_EMAIL="yout_email"
-REPO_URLS=(
-    "ssh://git_repo_url"
-)
-SSH_BACKUP_DIR="./ssh_backup"
-GO_VERSION="go1.23.0"
 
 # 检查当前用户是否具有sudo权限
 if sudo -v > /dev/null 2>&1; then
@@ -28,7 +23,7 @@ EOF
 
 # 更新包列表并安装基本软件
 sudo apt-get update
-sudo apt-get install -y git zsh wget curl unzip fzf python3 python3-pip nodejs npm ripgrep fd-find openssh-client openssh-server xclip tmux
+sudo apt-get install -y gcc git zsh wget curl unzip fzf python3 python3-pip nodejs npm ripgrep fd-find openssh-client openssh-server tmux
 
 # 安装 docker-compose
 sudo apt install -y docker.io 
@@ -40,24 +35,13 @@ sudo chmod +x /usr/local/bin/docker-compose
 git config --global user.name "$GIT_NAME"
 git config --global user.email "$GIT_EMAIL"
 
-# 安装 Oh My Zsh
-yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# 切换默认 Shell 为 Zsh
+# Zsh
+cp -r ../zsh ~/.config
+cp ../zsh/.zshrc ~/.zshrc
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/
+git clone https://github.com/agkozak/zsh-z.git ~/.config/zsh/
 chsh -s $(which zsh)
-
-# 安装 zsh-syntax-highlighting 和 zsh-autosuggestions 插件
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-# 添加插件到 .zshrc
-sed -i 's/^plugins=(git)/plugins=(git zsh-syntax-highlighting zsh-autosuggestions z sudo docker)/' ~/.zshrc
-
-# 下载并安装 Go 语言
-GO_TARFILE="${GO_VERSION}.linux-amd64.tar.gz"
-wget "https://go.dev/dl/${GO_TARFILE}"
-sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf ${GO_TARFILE}
-sudo rm ${GO_TARFILE}
 
 # 安装新版新nvim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
@@ -74,13 +58,19 @@ else
 fi
 fc-cache -fv
 
-# 配置 Path环境变量
-echo "export PATH=\$PATH:/usr/local/go/bin:\$HOME/go/bin:/opt/nvim-linux64/bin" >> ~/.zshrc
-# 配置 GOPATH
-echo "export GOPATH=\$HOME/go:$HOME/workSpace:$HOME/workSpace/src/go-package" >> ~/.zshrc
+# install wezterm
+curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
+echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+sudo apt update
+sudo apt install wezterm-nightly
 
-# 重新加载 .zshrc
-source ~/.zshrc
+mkdir -p ~/.config/wezterm
+cp ../wezterm/wezterm.lua ~/.config/wezterm/
+
+# install starship
+curl -sS https://starship.rs/install.sh | sh
+cp ../starship/starship.toml ~/.config/
+
 
 # 恢复 SSH 公钥和私钥，并配置 ssh config 文件
 if [ -d "$SSH_BACKUP_DIR" ]; then
@@ -95,19 +85,5 @@ else
     echo "Warning: SSH key backup directory '$SSH_BACKUP_DIR' does not exist. Skipping SSH key restoration."
     exit 1
 fi
-
-#验证是否能登录git
-#ssh -T git@${git_host}
-
-# 克隆代码仓库
-dir=$HOME/workSpace/src
-mkdir -p $dir/sunteng && cd $dir
-for repo_url in "${REPO_URLS[@]}"
-do
-    git clone $repo_url
-done
-
-#移动common库到sunteng目录下
-mv $dir/commons $dir/sunteng
 
 echo "Setup completed! Please restart your terminal or source ~/.zshrc to apply changes."
