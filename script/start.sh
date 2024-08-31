@@ -71,6 +71,8 @@ cp ../wezterm/wezterm.lua ~/.config/wezterm/
 curl -sS https://starship.rs/install.sh | sh
 cp ../starship/starship.toml ~/.config/
 
+# tmux
+cp ../tmux/.tmux.conf ~/
 
 # 恢复 SSH 公钥和私钥，并配置 ssh config 文件
 if [ -d "$SSH_BACKUP_DIR" ]; then
