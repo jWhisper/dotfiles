@@ -61,3 +61,6 @@ alias gqcp='quick_commit push'
 
 # ls
 alias ll='ls -l'
+
+# ranger
+alias rr='ranger'

@@ -15,3 +15,6 @@ source <(fzf --zsh)
 
 # nvim
 export "PATH=$PATH:/opt/nvim-linux64/bin"
+
+# fd
+export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
