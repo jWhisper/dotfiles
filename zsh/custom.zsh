@@ -15,9 +15,8 @@ eval "$(starship init zsh)"
 
 # fzf
 source <(fzf --zsh)
+# fzf use fd
+export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
 
 # nvim
 export "PATH=$PATH:/opt/nvim-linux64/bin"
-
-# fd
-export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
