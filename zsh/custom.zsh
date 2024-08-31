@@ -9,9 +9,9 @@ bindkey "$terminfo[kcbt]" reverse-menu-complete
 source $HOME/.config/zsh/zsh-z/zsh-z.plugin.zsh
 
 # Starship
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+# export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init zsh)"
-starship config palette $STARSHIP_THEME
+# starship config palette $STARSHIP_THEME
 
 # fzf
 source <(fzf --zsh)
