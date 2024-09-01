@@ -3,6 +3,10 @@ return { -- Highlight, edit, and navigate code
 	build = ":TSUpdate",
 	main = "nvim-treesitter.configs", -- Sets main module to use for opts
 	-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		"nvim-treesitter/nvim-treesitter-context",
+	},
 	opts = {
 		ensure_installed = {
 			"bash",
@@ -28,9 +32,40 @@ return { -- Highlight, edit, and navigate code
 			additional_vim_regex_highlighting = { "ruby" },
 		},
 		indent = { enable = true, disable = { "ruby" } },
+		textobjects = {
+			select = {
+				enable = true,
+				lookahead = true,
+				keymaps = {
+					-- You can use the capture groups defined in textobjects.scm
+					["af"] = "@function.outer",
+					["if"] = "@function.inner",
+					["ac"] = "@class.outer",
+					-- You can optionally set descriptions to the mappings (used in the desc parameter of
+					-- nvim_buf_set_keymap) which plugins like which-key display
+					["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+					-- You can also use captures from other query groups like `locals.scm`
+					["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+				},
+			},
+			move = {
+				enable = true,
+				set_jumps = true, -- whether to set jumps in the jumplist
+				goto_next_start = {
+					["]f"] = "@function.outer",
+				},
+				goto_next_end = {
+					["]F"] = "@function.outer",
+				},
+				goto_previous_start = {
+					["[f"] = "@function.outer",
+				},
+				goto_previous_end = {
+					["[F"] = "@function.outer",
+				},
+			},
+		},
 	},
-	-- There are additional nvim-treesitter modules that you can use to interact
-	-- with nvim-treesitter. You should go explore a few and see what interests you:
 	--
 	--    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
 	--    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
