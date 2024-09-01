@@ -43,6 +43,11 @@ return {
 				-- ["<2-LeftMouse>"] = "open_tabnew",
 				-- k},
 			},
+			filesystem = {
+				filtered_items = {
+					hide_dotfiles = false,
+				},
+			},
 		})
 	end,
 }
