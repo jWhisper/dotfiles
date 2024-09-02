@@ -23,7 +23,7 @@ EOF
 
 # 更新包列表并安装基本软件
 sudo apt-get update
-sudo apt-get install -y gcc git zsh wget curl unzip python3 python3-pip nodejs npm ripgrep fd-find fzf openssh-client openssh-server tmux
+sudo apt-get install -y gcc git zsh wget curl unzip python3 python3-pip nodejs ripgrep fd-find fzf openssh-client openssh-server tmux ranger
 
 # 安装 docker-compose
 sudo apt install -y docker.io 
@@ -31,12 +31,13 @@ DOCKER_COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/rel
 sudo curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
+# 安装最新版的fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+yes | ~/.fzf/install
+
 # 配置 Git 信息
 git config --global user.name "$GIT_NAME"
 git config --global user.email "$GIT_EMAIL"
-
-# 安装ranger
-pip3 install ranger-fm
 
 # 安装tmux 插件
 mkdir -p ~/.config/tmux/plugins/tpm

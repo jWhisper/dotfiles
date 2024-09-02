@@ -4,6 +4,9 @@ source $HOME/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.config/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source $HOME/.config/zsh/zsh-z/zsh-z.plugin.zsh
 
+bindkey              '^I'         menu-complete
+bindkey "$terminfo[kcbt]" reverse-menu-complete
+
 # Starship
 # export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init zsh)"
@@ -12,7 +15,7 @@ eval "$(starship init zsh)"
 # fzf
 source <(fzf --zsh)
 # fzf use fd
-export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
+export FZF_DEFAULT_COMMAND='fdfind --type file --follow --hidden --exclude .git'
 
 # nvim
 export "PATH=$PATH:/opt/nvim-linux64/bin"
