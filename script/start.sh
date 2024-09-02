@@ -23,17 +23,13 @@ EOF
 
 # 更新包列表并安装基本软件
 sudo apt-get update
-sudo apt-get install -y gcc git zsh wget curl unzip python3 python3-pip nodejs ripgrep fd-find fzf openssh-client openssh-server tmux ranger
+sudo apt-get install -y gcc git zsh wget curl unzip python3 pipx nodejs ripgrep fd-find ranger openssh-client openssh-server tmux
 
 # 安装 docker-compose
 sudo apt install -y docker.io 
 DOCKER_COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep -Po '"tag_name": "\K.*?(?=")')
 sudo curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-
-# 安装最新版的fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-yes | ~/.fzf/install
 
 # 配置 Git 信息
 git config --global user.name "$GIT_NAME"
@@ -50,6 +46,11 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/zsh-aut
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/zsh-syntax-highlighting
 git clone https://github.com/agkozak/zsh-z.git ~/.config/zsh/zsh-z
 git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ~/.config/zsh/zsh-autocomplete
+
+# 安装最新版的fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+yes | ~/.fzf/install
+
 chsh -s $(which zsh)
 
 # 安装新版新nvim

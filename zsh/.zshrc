@@ -9,3 +9,10 @@ setopt HIST_IGNORE_ALL_DUPS
 
 # Work
 [ -f "$HOME/.config/zsh/work.zsh" ] && source "$HOME/.config/zsh/work.zsh"
+
+###############
+## Key Mapping#
+###############
+
+bindkey              '^I'         menu-complete
+bindkey "$terminfo[kcbt]" reverse-menu-complete
