@@ -1,6 +1,6 @@
 return { -- Useful plugin to show you pending keybinds.
 	"folke/which-key.nvim",
-	event = "VimEnter", -- Sets the loading event to 'VimEnter'
+	event = "VeryLazy", -- Sets the loading event to 'VimEnter'
 	config = function() -- This is the function that runs, AFTER loading
 		require("which-key").setup({
 			icons = {
@@ -47,7 +47,7 @@ return { -- Useful plugin to show you pending keybinds.
 			{ "<leader>c", group = "[C]ode", mode = { "n", "x" }, icon = " " },
 			{ "<leader>x", group = "[X]Trouble", mode = "n", icon = "󰙅 " },
 			{ "<leader>l", group = "[L]sp", mode = "n", icon = "󰿘 " },
-			{ "<leader>t", group = "[T]oggle" },
+			-- { "<leader>t", group = "[T]oggle" },
 			{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" }, icon = "󰊢 " },
 			{ "<leader>s", group = "[S]earch", mode = "n", icon = " " },
 		})

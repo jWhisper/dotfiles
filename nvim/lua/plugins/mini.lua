@@ -3,7 +3,26 @@ return {
 	version = "*",
 	dependencies = { "echasnovski/mini.icons" },
 	config = function()
-		-- require("mini.starter").setup()
+		local starter = require("mini.starter")
+		starter.setup({
+			items = {
+				-- Use this if you set up 'mini.sessions'
+				starter.sections.sessions(5, true),
+				starter.sections.recent_files(10, false),
+
+				{ action = "Telescope project", name = "Projects", section = "Telescope" },
+				{ action = "Telescope command_history", name = "Command history", section = "Telescope" },
+				{ action = "Telescope find_files", name = "Files", section = "Telescope" },
+				{ action = "Telescope help_tags", name = "Help tags", section = "Telescope" },
+				{ action = "Telescope live_grep", name = "Live grep", section = "Telescope" },
+				{ action = "Telescope oldfiles", name = "Old files", section = "Telescope" },
+
+				starter.sections.builtin_actions(),
+			},
+		})
+
+		require("mini.sessions").setup()
+		-- require("mini.animate").setup()
 
 		-- Better Around/Inside textobjects
 		--
@@ -23,8 +42,9 @@ return {
 		-- require("mini.pairs").setup()
 
 		require("mini.git").setup()
+		require("mini.indentscope").setup()
 
-		require("mini.diff").setup()
+		-- require("mini.diff").setup()
 
 		-- use bufferline
 		-- require("mini.tabline").setup()

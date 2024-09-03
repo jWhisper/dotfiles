@@ -16,8 +16,13 @@ vim.opt.rtp:prepend(lazypath)
 
 -- [[ Config and install plugins ]]
 require("lazy").setup({
+	-- performance = {
+	-- 	startuptime = function()
+	-- 		print("Neovim startup time: " .. vim.fn.reltimestr(vim.fn.getstartuptime()))
+	-- 	end,
+	-- },
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
+	{ "tpope/vim-sleuth", event = { "BufReadPre", "BufNewFile" } }, -- Detect tabstop and shiftwidth automatically
 
 	{
 		"folke/tokyonight.nvim",
@@ -38,7 +43,7 @@ require("lazy").setup({
 	{ "mg979/vim-visual-multi", lazy = true, keys = { { "<C-n>", mode = { "n", "x" } } } },
 	{
 		"folke/todo-comments.nvim",
-		event = "VeryLazy",
+		event = { "BufRead", "BufNewFile" },
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
 	},

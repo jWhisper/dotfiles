@@ -24,6 +24,9 @@ vim.keymap.set("n", "<C-s>", "<cmd>:w<CR>", { desc = "Save" })
 vim.keymap.set("n", "<C-u>", "9k", { desc = "Move up 9 lines" })
 vim.keymap.set("n", "<C-d>", "9j", { desc = "Move down 9 lines" })
 
+vim.api.nvim_set_keymap("n", "gb", "^", { noremap = false })
+vim.api.nvim_set_keymap("n", "ge", "$", { noremap = false, desc = "Go to end of the line" })
+
 -- Hint: start visual mode with the same area as the previous area and the same mode
 vim.keymap.set("v", "<", "<gv", {})
 vim.keymap.set("v", ">", ">gv", {})
