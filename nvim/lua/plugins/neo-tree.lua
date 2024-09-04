@@ -3,7 +3,7 @@
 
 return {
 	"nvim-neo-tree/neo-tree.nvim",
-	version = "*",
+	branch = "v3.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -46,6 +46,10 @@ return {
 			filesystem = {
 				filtered_items = {
 					hide_dotfiles = false,
+				},
+				follow_current_file = {
+					enabled = true, -- This will find and focus the file in the active buffer every time
+					--               -- the current file is changed while the tree is open.
 				},
 			},
 		})

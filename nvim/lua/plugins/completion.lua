@@ -36,35 +36,35 @@ return {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-cmdline",
-			"onsails/lspkind.nvim",
+			-- "onsails/lspkind.nvim", not good in windows
 		},
 		config = function()
 			-- See `:help cmp`
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
-			local lspkind = require("lspkind")
+			-- local lspkind = require("lspkind")
 			luasnip.config.setup({})
 
 			cmp.setup({
 				-- NOTE:Appearance customisations
 				-- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#basic-customisations
-				formatting = {
-					format = lspkind.cmp_format({
-						mode = "symbol_text",
-						menu = {
-							buffer = "[Buffer]",
-							nvim_lsp = "[LSP]",
-							path = "[Path]",
-							luasnip = "[Snippet]",
-							cmdline = "[Cmdline]",
-						},
-					}),
-				},
-
-				experimental = {
-					ghost_text = false,
-					native_menu = false,
-				},
+				-- formatting = {
+				-- 	format = lspkind.cmp_format({
+				-- 		mode = "symbol_text",
+				-- 		menu = {
+				-- 			buffer = "[Buffer]",
+				-- 			nvim_lsp = "[LSP]",
+				-- 			path = "[Path]",
+				-- 			luasnip = "[Snippet]",
+				-- 			cmdline = "[Cmdline]",
+				-- 		},
+				-- 	}),
+				-- },
+				--
+				-- experimental = {
+				-- 	ghost_text = false,
+				-- 	native_menu = false,
+				-- },
 				snippet = {
 					expand = function(args)
 						luasnip.lsp_expand(args.body)

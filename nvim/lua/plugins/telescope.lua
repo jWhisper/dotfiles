@@ -51,9 +51,9 @@ return {
 				--  All the info you're looking for is in `:help telescope.setup()`
 				--
 				-- defaults = {
-				--   mappings = {
-				--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-				--   },
+				-- 	mappings = {
+				-- 		["<C-f>"] = actions.preview_scrolling_left,
+				-- 	},
 				-- },
 				-- pickers = {}
 				extensions = {
