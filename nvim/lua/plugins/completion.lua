@@ -46,9 +46,9 @@ return {
 			luasnip.config.setup({})
 
 			cmp.setup({
-					-- NOTE:Appearance customisations
-                              -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#basic-customisations
-                  formatting = {
+				-- NOTE:Appearance customisations
+                -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#basic-customisations
+                formatting = {
                     format = lspkind.cmp_format {
                     mode = 'symbol_text',
                     menu = {
@@ -58,13 +58,13 @@ return {
                           luasnip = '[Snippet]',
                           cmdline = '[Cmdline]',
                         },
-                 },
-        },
+                    },
+                },
 
-        experimental = {
-          ghost_text = false,
-          native_menu = false,
-        },
+                experimental = {
+                    ghost_text = false,
+                    native_menu = false,
+                },
 				snippet = {
 					expand = function(args)
 						luasnip.lsp_expand(args.body)
@@ -95,12 +95,12 @@ return {
 					-- you can uncomment the following lines
 					['<CR>'] = cmp.mapping.confirm { select = true },
 					-- ['<Tab>'] = cmp.mapping.select_next_item(),
-				        -- ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+                    -- ['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
 					-- Manually trigger a completion from nvim-cmp.
 					--  Generally you don't need this, because nvim-cmp will display
 					--  completions whenever it has completion options available.
-					["<C-Space>"] = cmp.mapping.complete({}),
+					["<A-\\>"] = cmp.mapping.complete({}),
 
 					-- Think of <c-l> as moving to the right of your snippet expansion.
 					--  So if you have a snippet that's like:
