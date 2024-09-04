@@ -36,35 +36,35 @@ return {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-cmdline",
-			'onsails/lspkind.nvim',
+			"onsails/lspkind.nvim",
 		},
 		config = function()
 			-- See `:help cmp`
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
-			local lspkind = require 'lspkind'
+			local lspkind = require("lspkind")
 			luasnip.config.setup({})
 
 			cmp.setup({
 				-- NOTE:Appearance customisations
-                -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#basic-customisations
-                formatting = {
-                    format = lspkind.cmp_format {
-                    mode = 'symbol_text',
-                    menu = {
-                          buffer = '[Buffer]',
-                          nvim_lsp = '[LSP]',
-                          path = '[Path]',
-                          luasnip = '[Snippet]',
-                          cmdline = '[Cmdline]',
-                        },
-                    },
-                },
+				-- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#basic-customisations
+				formatting = {
+					format = lspkind.cmp_format({
+						mode = "symbol_text",
+						menu = {
+							buffer = "[Buffer]",
+							nvim_lsp = "[LSP]",
+							path = "[Path]",
+							luasnip = "[Snippet]",
+							cmdline = "[Cmdline]",
+						},
+					}),
+				},
 
-                experimental = {
-                    ghost_text = false,
-                    native_menu = false,
-                },
+				experimental = {
+					ghost_text = false,
+					native_menu = false,
+				},
 				snippet = {
 					expand = function(args)
 						luasnip.lsp_expand(args.body)
@@ -93,9 +93,9 @@ return {
 
 					-- If you prefer more traditional completion keymaps,
 					-- you can uncomment the following lines
-					['<CR>'] = cmp.mapping.confirm { select = true },
+					["<CR>"] = cmp.mapping.confirm({ select = true }),
 					-- ['<Tab>'] = cmp.mapping.select_next_item(),
-                    -- ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+					-- ['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
 					-- Manually trigger a completion from nvim-cmp.
 					--  Generally you don't need this, because nvim-cmp will display
