@@ -3,6 +3,8 @@ return {
 	version = false,
 	dependencies = { "echasnovski/mini.icons" },
 	config = function()
+		require("mini.sessions").setup()
+
 		local starter = require("mini.starter")
 		starter.setup({
 			items = {
@@ -21,7 +23,6 @@ return {
 			},
 		})
 
-		require("mini.sessions").setup()
 		-- require("mini.animate").setup()
 
 		-- Better Around/Inside textobjects
