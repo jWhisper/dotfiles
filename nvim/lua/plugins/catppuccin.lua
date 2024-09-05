@@ -120,6 +120,7 @@ return {
 			integrations = {
 				-- aerial = true,
 				diffview = true,
+				dap = true,
 				mini = {
 					enabled = true,
 					indentscope_color = "sky",

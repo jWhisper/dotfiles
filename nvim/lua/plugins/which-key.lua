@@ -49,7 +49,7 @@ return { -- Useful plugin to show you pending keybinds.
 			{ "<leader>l", group = "[L]sp", mode = "n", icon = "󰿘" },
 			-- { "<leader>t", group = "[T]oggle" },
 			{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" }, icon = "" },
-			{ "<leader>g", group = "Git", mode = "n", icon = "󰊢" },
+			{ "<leader>g", group = "[G]it", mode = "n", icon = "󰊢" },
 			{ "<leader>s", group = "[S]earch", mode = "n", icon = "" },
 		})
 	end,
