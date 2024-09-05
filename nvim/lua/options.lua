@@ -14,7 +14,7 @@ vim.opt.relativenumber = true -- add numbers to each line on the left side
 
 vim.opt.showmode = false -- we are experienced, wo don't need the "-- INSERT --" mode hint
 vim.opt.cursorline = true -- highlight cursor line underneath the cursor horizontally
-vim.cmd([[highlight CursorLine cterm=NONE ctermbg=darkgray ctermfg=NONE guibg=darkgray guifg=NONE]])
+-- vim.cmd([[highlight CursorLine cterm=NONE ctermbg=darkgray ctermfg=NONE guibg=darkgray guifg=NONE]])
 vim.opt.splitbelow = true -- open new vertical split bottom
 vim.opt.splitright = true -- open new horizontal splits right
 
