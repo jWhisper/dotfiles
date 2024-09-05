@@ -5,8 +5,14 @@ return {
 	dependencies = "nvim-tree/nvim-web-devicons",
 
 	config = function()
+		local ok, catppuccin_bufferline = pcall(require, "catppuccin.groups.integrations.bufferline")
+		local highlights = nil
+
+		if ok and catppuccin_bufferline then
+			highlights = catppuccin_bufferline.get()
+		end
 		require("bufferline").setup({
-			highlights = require("catppuccin.groups.integrations.bufferline").get(),
+			highlights = highlights,
 		})
 		-- 因为mac映射D-Commadn，不使用A-alt
 		-- 1. 插入模式 2.按ctrl-v，3. alt-j，4，显示第三步的绑定 https://blog.csdn.net/weixin_33806509/article/details/93736750

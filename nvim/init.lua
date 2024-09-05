@@ -33,7 +33,7 @@ require("lazy").setup({
 			require("tokyonight").setup({
 				style = "storm", -- 你可以选择 "storm", "moon", "night" 或 "day"
 				light_style = "day", -- 当背景设置为浅色时使用的主题
-				transparent = true, -- 启用透明背景
+				transparent = false, -- 启用透明背景
 				terminal_colors = true, -- 配置打开 `:terminal` 时使用的颜色
 			})
 			vim.cmd([[colorscheme tokyonight]])
