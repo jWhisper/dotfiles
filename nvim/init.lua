@@ -35,6 +35,7 @@ require("lazy").setup({
 				overrides = {
 					MiniIndentscopeSymbol = { link = "GruvboxOrangeBold" },
 					SignColumn = { link = "GruvboxBg0" },
+					-- DiagnosticSignHint = { link = "GruvboxAqua" },
 				},
 			})
 			vim.o.background = "dark" -- or "light" for light mode
