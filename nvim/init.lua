@@ -22,11 +22,11 @@ require("lazy").setup({
 	-- 	end,
 	-- },
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-	{ "tpope/vim-sleuth", event = { "BufReadPre", "BufNewFile" } }, -- Detect tabstop and shiftwidth automatically
+	{ "tpope/vim-sleuth",       event = { "BufReadPre", "BufNewFile" } }, -- Detect tabstop and shiftwidth automatically
 
 	{
 		"folke/tokyonight.nvim",
-		enabled = false,
+		-- optional = true,
 		lazy = false,
 		priority = 1000,
 		config = function()
@@ -41,7 +41,7 @@ require("lazy").setup({
 	},
 
 	-- current best multicursor IMHO
-	{ "mg979/vim-visual-multi", lazy = true, keys = { { "<C-n>", mode = { "n", "x" } } } },
+	{ "mg979/vim-visual-multi", lazy = true,                           keys = { { "<C-n>", mode = { "n", "x" } } } },
 	{
 		"folke/todo-comments.nvim",
 		event = { "BufRead", "BufNewFile" },
