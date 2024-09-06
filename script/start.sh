@@ -40,18 +40,23 @@ mkdir -p ~/.config/tmux/plugins/tpm
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
 # Zsh
-cp -r ../zsh ~/.config
-cp ../zsh/.zshrc ~/.zshrc
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/zsh-syntax-highlighting
-git clone https://github.com/agkozak/zsh-z.git ~/.config/zsh/zsh-z
-git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ~/.config/zsh/zsh-autocomplete
+yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+chsh -s $(which zsh)
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+cp ../zsh/zsh_custom.zsh ~/.zsh_custom.zsh
+sed -i 's/^plugins=(git)/plugins=(git zsh-syntax-highlighting zsh-autosuggestions z sudo docker)/' ~/.zshrc
+echo "[ -f ~/.zsh_custom.zsh ] && source ~/.zsh_custom.zsh" >> ~/.zshrc
+
+# git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/zsh-autosuggestions
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/zsh-syntax-highlighting
+# git clone https://github.com/agkozak/zsh-z.git ~/.config/zsh/zsh-z
+# git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ~/.config/zsh/zsh-autocomplete
 
 # 安装最新版的fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 yes | ~/.fzf/install
-
-chsh -s $(which zsh)
 
 # 安装新版新nvim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz

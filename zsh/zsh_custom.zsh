@@ -18,7 +18,7 @@ alias e='exit'
 #alias grfzf='git diff --name-only | fzf -m --print0 | xargs -0 -o -t git restore' # Git restore with fzf
 #alias grsfzf='git diff --name-only | fzf -m --print0 | xargs -0 -o -t git restore --staged' # Git restore --staged with fzf
 #alias gf='git fetch'
-#alias gs='git status'
+#alias gst='git status'
 #alias gss='git status -s'
 #alias gup='git fetch && git rebase'
 #alias gtd='git tag --delete'
@@ -70,17 +70,17 @@ alias rr='ranger'
 
 alias vim="nvim"
 
-#################
-#### zsh file####
-#################
+###################################################
+#### zsh file######################################
+###################################################
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(starship init zsh)"
 
 
-#################
-####  export ####
-#################
+###################################################
+####  export ######################################
+###################################################
 export "PATH=$PATH:/opt/nvim-linux64/bin"
 
 # GPT key

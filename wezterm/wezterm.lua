@@ -15,7 +15,8 @@ config = {
 	window_close_confirmation = "NeverPrompt",
 	window_decorations = "RESIZE", --disable the title bar but enable the resizeable border
 	default_cursor_style = "BlinkingBar",
-	color_scheme = "Tokyo Night",
+	-- color_scheme = "Tokyo Night",
+	color_scheme = "Gruvbox dark, pale (base16)",
 	font = wezterm.font("JetBrains Mono", { weight = "Bold" }),
 	font_size = 18,
 	window_padding = {

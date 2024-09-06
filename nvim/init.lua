@@ -22,26 +22,43 @@ require("lazy").setup({
 	-- 	end,
 	-- },
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-	{ "tpope/vim-sleuth",       event = { "BufReadPre", "BufNewFile" } }, -- Detect tabstop and shiftwidth automatically
+	{ "tpope/vim-sleuth", event = { "BufReadPre", "BufNewFile" } }, -- Detect tabstop and shiftwidth automatically
 
 	{
-		"folke/tokyonight.nvim",
-		-- optional = true,
-		lazy = false,
+		"ellisonleao/gruvbox.nvim",
 		priority = 1000,
 		config = function()
-			require("tokyonight").setup({
-				style = "storm", -- 你可以选择 "storm", "moon", "night" 或 "day"
-				light_style = "day", -- 当背景设置为浅色时使用的主题
-				transparent = false, -- 启用透明背景
-				terminal_colors = true, -- 配置打开 `:terminal` 时使用的颜色
+			require("gruvbox").setup({
+				dim_inactive = false,
+				-- contrast = "soft",
+				transparent_mode = false,
+				overrides = {
+					MiniIndentscopeSymbol = { link = "GruvboxOrangeBold" },
+					SignColumn = { link = "GruvboxBg0" },
+				},
 			})
-			vim.cmd([[colorscheme tokyonight]])
+			vim.o.background = "dark" -- or "light" for light mode
+			vim.cmd("colorscheme gruvbox")
 		end,
 	},
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	optional = true,
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("tokyonight").setup({
+	-- 			style = "storm", -- 你可以选择 "storm", "moon", "night" 或 "day"
+	-- 			light_style = "day", -- 当背景设置为浅色时使用的主题
+	-- 			transparent = false, -- 启用透明背景
+	-- 			terminal_colors = true, -- 配置打开 `:terminal` 时使用的颜色
+	-- 		})
+	-- 		vim.cmd([[colorscheme tokyonight]])
+	-- 	end,
+	-- },
 
 	-- current best multicursor IMHO
-	{ "mg979/vim-visual-multi", lazy = true,                           keys = { { "<C-n>", mode = { "n", "x" } } } },
+	{ "mg979/vim-visual-multi", lazy = true, keys = { { "<C-n>", mode = { "n", "x" } } } },
 	{
 		"folke/todo-comments.nvim",
 		event = { "BufRead", "BufNewFile" },
