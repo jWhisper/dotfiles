@@ -19,12 +19,12 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.keymap.set("n", "<leader>q", "<cmd>:q<CR>", { desc = "[Q]uit current window" })
 vim.keymap.set("n", "<C-q>", "<cmd>:qall<CR>", { desc = "Quit all window" })
-vim.keymap.set("n", "<C-s>", "<cmd>:w<CR>", { desc = "Save" })
+vim.keymap.set("n", "<C-s>", "<cmd>:w<CR>", { desc = "Save current buffer" })
 
-vim.keymap.set("n", "<C-u>", "9k", { desc = "Move up 9 lines" })
-vim.keymap.set("n", "<C-d>", "9j", { desc = "Move down 9 lines" })
+vim.keymap.set("n", "<C-u>", "5k", { desc = "Move up 5 lines" })
+vim.keymap.set("n", "<C-d>", "5j", { desc = "Move down 5 lines" })
 
-vim.api.nvim_set_keymap("n", "gb", "^", { noremap = false })
+vim.api.nvim_set_keymap("n", "gb", "^", { noremap = false, desc = "Go to begin of the line" })
 vim.api.nvim_set_keymap("n", "ge", "$", { noremap = false, desc = "Go to end of the line" })
 
 -- Hint: start visual mode with the same area as the previous area and the same mode

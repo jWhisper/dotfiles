@@ -22,19 +22,19 @@ return {
 			"n",
 			"<leader>bo",
 			":BufferLineCloseOthers<CR>",
-			{ noremap = true, silent = true, desc = "close all buffer, [O]nly one" }
+			{ noremap = true, silent = true, desc = "close other buffer, [O]nly current" }
 		)
 		vim.api.nvim_set_keymap(
 			"n",
 			"<leader>bc",
 			":BufferLinePickClose<CR>",
-			{ noremap = true, silent = true, desc = "[C]lose buffer + " }
+			{ noremap = true, silent = true, desc = "[C]lose buffer+p" }
 		)
 		vim.api.nvim_set_keymap(
 			"n",
 			"<leader>bm",
 			":BufferLinePick<CR>",
-			{ noremap = true, silent = true, desc = "[M]ove to buffer + " }
+			{ noremap = true, silent = true, desc = "[M]ove to buffer+p" }
 		)
 	end,
 }
