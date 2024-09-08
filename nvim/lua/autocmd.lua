@@ -26,3 +26,9 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 		vim.api.nvim_exec2('silent! normal! g`"zv', {})
 	end,
 })
+
+-- use for obsidian
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = "markdown",
+	command = "set conceallevel=2",
+})
