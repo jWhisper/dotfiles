@@ -3,8 +3,11 @@ return {
 	builder = function()
 		local file = vim.fn.expand("%:p")
 		local cmd = { file }
-		if vim.bo.filetype == "go" then
+		local ft = vim.bo.filetype
+		if ft == "go" then
 			cmd = { "go", "run", file }
+		elseif ft == "python" then
+			cmd = { "python", file }
 		end
 		return {
 			cmd = cmd,
