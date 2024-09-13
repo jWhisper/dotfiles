@@ -33,7 +33,7 @@ return { -- Highlight, edit, and navigate code
 			keymaps = {
 				init_selection = "<v>",
 				node_incremental = "<CR>",
-				scope_incremental = "<CR>",
+				scope_incremental = "<c-a>",
 				node_decremental = "<BS>",
 			},
 		},
